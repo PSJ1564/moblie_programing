@@ -1,0 +1,87 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true" >
+    <!--  상단 상태 표시줄  -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="12dp"
+        android:orientation="horizontal"
+        android:gravity="center_horizontal"
+        android:background="#d1f06a" >
+        <TextView
+            android:id="@+id/textTimer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Time: 120"
+            android:textSize="18sp"
+            android:textColor="@color/black"
+            android:layout_marginEnd="24dp" />
+
+        <TextView
+            android:id="@+id/textScore"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Score: 0"
+            android:textSize="18sp"
+            android:textColor="@color/black" />
+    </LinearLayout>
+    <!--  격자  -->
+    <GridLayout
+        android:id="@+id/gridLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:alignmentMode="alignMargins"
+        android:columnCount="10"
+        android:rowCount="12"
+        android:padding="16dp"
+        android:useDefaultMargins="true" />
+
+    <LinearLayout
+        android:id="@+id/itembtn"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="8dp" >
+
+        <Button
+            android:id="@+id/btnDsetroy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="블록 제거" />
+
+        <Button
+            android:id="@+id/btnSwap"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="블록 교환" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="8dp" >
+    <Button
+        android:id="@+id/btnPause"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="일시정지"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="16dp"/>
+
+    <Button
+        android:id="@+id/btnReturn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="16dp"
+        android:text="처음 화면으로" />
+    </LinearLayout>
+</LinearLayout>
