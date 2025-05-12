@@ -3,8 +3,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
-    android:padding="24dp"
-    android:fitsSystemWindows="true" >
+    android:padding="24dp">
 
     <Button
         android:id="@+id/btnStartGame"
@@ -12,17 +11,4 @@
         android:layout_height="wrap_content"
         android:text="게임 시작" />
 
-    <Button
-        android:id="@+id/buttonSetting"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Setting"
-        android:layout_marginTop="16dp" />
-
-    <Button
-        android:id="@+id/buttonScore"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Score"
-        android:layout_marginTop="16dp" />
 </LinearLayout>
