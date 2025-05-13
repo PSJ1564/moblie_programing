@@ -34,6 +34,9 @@ public class GameActivity extends AppCompatActivity {
     private long remainingTime = 0;
     private final long totalTime = 60 * 1000; // 120초
 
+    private Button btnHint; //힌트
+    private int hintCount = 3; // 힌트
+
     private final int highlightColor = Color.parseColor("#A5D6A7");  // 연한 초록
     private final int defaultColor = Color.parseColor("#FFE066");   // 기본 사과 색
     private final int clearedColor = Color.parseColor("#DDDDDD");   // 제거된 색
@@ -60,6 +63,19 @@ public class GameActivity extends AppCompatActivity {
         textScore = findViewById(R.id.textScore);
         btnPause = findViewById(R.id.btnPause);
         btnReturn = findViewById(R.id.btnReturn);
+        btnHint = findViewById(R.id.btnHint); // 힌트 연결
+        updateHintButtonText();
+
+        btnHint.setOnClickListener(v -> {
+            if (hintCount > 0) {
+                hintCount--;
+                updateHintButtonText();
+                showHint(); // 힌트 표시 함수 호출
+                if (hintCount == 0) {
+                    Toast.makeText(this, "💡 힌트 모두 사용!", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
 
         btnPause.setOnClickListener(v -> {
             if(running) {
@@ -362,5 +378,51 @@ public class GameActivity extends AppCompatActivity {
             isFirstSwapSelected = false;
             isSwapMode = false;
         }
+    }
+
+    private void updateHintButtonText() {
+        if (hintCount > 0) {
+            btnHint.setText("힌트 (" + hintCount + "/3)");
+        } else {
+            btnHint.setText("힌트 사용 불가");
+            btnHint.setEnabled(false);
+            btnHint.setBackgroundColor(Color.GRAY); // 선택사항: 비활성화 느낌
+        }
+    }
+
+    private void showHint() {
+        clearHighlight(); // 기존 하이라이트 제거
+
+        for (int r1 = 0; r1 < GRID_ROWS; r1++) {
+            for (int c1 = 0; c1 < GRID_COLS; c1++) {
+                for (int r2 = r1; r2 < GRID_ROWS; r2++) {
+                    for (int c2 = c1; c2 < GRID_COLS; c2++) {
+
+                        int sum = 0;
+                        for (int row = r1; row <= r2; row++) {
+                            for (int col = c1; col <= c2; col++) {
+                                String text = appleCells[row][col].getText().toString();
+                                if (!text.isEmpty()) {
+                                    sum += Integer.parseInt(text);
+                                }
+                            }
+                        }
+
+                        if (sum == 10) {
+                            // 금색 하이라이트로 표시
+                            for (int row = r1; row <= r2; row++) {
+                                for (int col = c1; col <= c2; col++) {
+                                    appleCells[row][col].setBackgroundColor(Color.parseColor("#FF0000"));
+                                }
+                            }
+                            Toast.makeText(this, "🔍 합이 10인 조합 발견!", Toast.LENGTH_SHORT).show();
+                            return;
+                        }
+                    }
+                }
+            }
+        }
+
+        Toast.makeText(this, "❌ 가능한 조합이 없습니다!", Toast.LENGTH_SHORT).show();
     }
 }
