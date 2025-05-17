@@ -1,17 +1,23 @@
 package com.example.pineapplegame;
 
 import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.Gravity;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.animation.DecelerateInterpolator;
 import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.GridLayout;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.android.material.snackbar.Snackbar;
 
 import java.util.Random;
 
@@ -19,8 +25,12 @@ public class GameActivity extends AppCompatActivity {
     private static final int GRID_ROWS = 12;
     private static final int GRID_COLS = 10;
     private GridLayout gridLayout;
+    private LinearLayout state;
+    private FrameLayout root;//id:main rootview임
     private TextView[][] appleCells = new TextView[GRID_ROWS][GRID_COLS];
     private Random random = new Random();
+    private View scoreOverlay;
+    private TextView textFinalScore;
 
     private int cellSize = 90;
 
@@ -33,11 +43,6 @@ public class GameActivity extends AppCompatActivity {
     private int comboScore = 0;
     private long remainingTime = 0;
     private final long totalTime = 60 * 1000; // 120초
-
-    private final int highlightColor = Color.parseColor("#A5D6A7");  // 연한 초록
-    private final int defaultColor = Color.parseColor("#FFE066");   // 기본 사과 색
-    private final int clearedColor = Color.parseColor("#DDDDDD");   // 제거된 색
-
     private int destroyCount = 3;
     private int swapCount = 3;
     private enum Mode { NORMAL, DESTROY, SWAP }
@@ -48,19 +53,23 @@ public class GameActivity extends AppCompatActivity {
     private boolean running = true;
     private boolean combo = false;
     private int firstSwapRow, firstSwapCol;
-    private Button btnPause, btnReturn;
+    private Button btnPause, btnReturn, btnDestroy, btnSwap;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game); // ✅ 수정된 레이아웃 사용
-
+        root = findViewById(R.id.root);
+        state = findViewById(R.id.state);
         gridLayout = findViewById(R.id.gridLayout);
         textTimer = findViewById(R.id.textTimer);
         textScore = findViewById(R.id.textScore);
         btnPause = findViewById(R.id.btnPause);
         btnReturn = findViewById(R.id.btnReturn);
-
+        scoreOverlay = findViewById(R.id.scoreOverlay);
+        textFinalScore = findViewById(R.id.textFinalScore);
+        btnDestroy = findViewById(R.id.btnDsetroy);
+        btnSwap = findViewById(R.id.btnSwap);
         btnPause.setOnClickListener(v -> {
             if(running) {
                 pauseTimer();
@@ -92,8 +101,9 @@ public class GameActivity extends AppCompatActivity {
                 cell.setText(String.valueOf(value));
                 cell.setGravity(Gravity.CENTER);
                 cell.setTextSize(18);
-                cell.setBackgroundColor(defaultColor);
                 cell.setTextColor(Color.BLACK);
+                cell.setBackgroundResource(R.drawable.pineapple_grid);
+                cell.setPadding(0,20,0,0);
 
                 GridLayout.LayoutParams params = new GridLayout.LayoutParams();
                 params.width = cellSize;
@@ -120,7 +130,7 @@ public class GameActivity extends AppCompatActivity {
         for (int row = top; row <= bottom; row++) {
             for (int col = left; col <= right; col++) {
                 if (!appleCells[row][col].getText().toString().isEmpty()) {
-                    appleCells[row][col].setBackgroundColor(highlightColor);
+                    appleCells[row][col].setBackgroundResource(R.drawable.pineapple_gridselect);
                 }
             }
         }
@@ -131,9 +141,9 @@ public class GameActivity extends AppCompatActivity {
             for (int col = 0; col < GRID_COLS; col++) {
                 String text = appleCells[row][col].getText().toString();
                 if (!text.isEmpty()) {
-                    appleCells[row][col].setBackgroundColor(defaultColor);
+                    appleCells[row][col].setBackgroundResource(R.drawable.pineapple_grid);
                 } else {
-                    appleCells[row][col].setBackgroundColor(clearedColor);
+                    appleCells[row][col].setBackgroundResource(R.drawable.pineapple_griddestroy);
                 }
             }
         }
@@ -143,11 +153,15 @@ public class GameActivity extends AppCompatActivity {
         gridLayout.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View view, MotionEvent event) {
-                int x = (int) event.getX();
-                int y = (int) event.getY();
+                int[] gridLocation = new int[2];
+                gridLayout.getLocationOnScreen(gridLocation);
 
-                int col = x / (cellSize + 4);
-                int row = y / (cellSize + 4);
+                int gridX = (int) event.getRawX() - gridLocation[0];
+                int gridY = (int) event.getRawY() - gridLocation[1];
+
+                int margin = 4;
+                int col = gridX / (cellSize + margin);
+                int row = gridY / (cellSize + margin);
 
                 if (row >= GRID_ROWS || col >= GRID_COLS || row < 0 || col < 0)
                     return false;
@@ -156,8 +170,7 @@ public class GameActivity extends AppCompatActivity {
                     case MotionEvent.ACTION_DOWN:
                         startRow = row;
                         startCol = col;
-
-                        if(isDestroyedMode) {
+                        if (isDestroyedMode) {
                             destroySelectedBlock(row, col);
                             isDestroyedMode = false;
                         } else if (isSwapMode) {
@@ -179,6 +192,7 @@ public class GameActivity extends AppCompatActivity {
                 return true;
             }
         });
+
     }
 
     private void checkAndClearGroup(int r1, int c1, int r2, int c2) {
@@ -202,7 +216,7 @@ public class GameActivity extends AppCompatActivity {
             for (int row = top; row <= bottom; row++) {
                 for (int col = left; col <= right; col++) {
                     appleCells[row][col].setText("");
-                    appleCells[row][col].setBackgroundColor(clearedColor);
+                    appleCells[row][col].setBackgroundResource(R.drawable.pineapple_griddestroy);
                 }
             }
             startComboTimer();
@@ -254,14 +268,33 @@ public class GameActivity extends AppCompatActivity {
             public void onTick(long millisUntilFinished) {
                 remainingTime = millisUntilFinished;
                 textTimer.setText("Time: " + millisUntilFinished / 1000);
+                int color = 0xffd1f06a; //시간에 따른 상태표시줄색상변경
+                color = (int) ((color & 0xFF000000) |
+                                        (Math.min(255, ((color >> 16) & 0xFF) + 2*(60-millisUntilFinished/1000)) << 16) |
+                                        (Math.max(0, ((color >> 8) & 0xFF) - (60-millisUntilFinished/1000)) << 8) |
+                                        (Math.max(0, (color & 0xFF) - 2*(60-millisUntilFinished/1000))));
+                state.setBackgroundColor(color);
             }
 
             @Override
             public void onFinish() {
                 textTimer.setText("Time: 0");
-                Toast.makeText(GameActivity.this, "⏰ Time's up! Final Score: " + score, Toast.LENGTH_LONG).show();
+                gridLayout.setEnabled(false);
+
+                textFinalScore.setText("Score: " + score);
+                scoreOverlay.setVisibility(View.VISIBLE);//게임종료에 따른 점수스크린
+                scoreOverlay.setBackgroundColor(Color.parseColor("#AAFFFFFF"));
+                textFinalScore.setTextColor(Color.BLACK);
+                scoreOverlay.setTranslationY(-700);
+                scoreOverlay.animate()
+                        .translationY(0)
+                        .setDuration(600)
+                        .setInterpolator(new DecelerateInterpolator())
+                        .start();
                 btnReturn.setVisibility(View.VISIBLE);
-                btnPause.setVisibility(View.INVISIBLE);
+                btnPause.setVisibility(View.GONE);
+                btnDestroy.setVisibility(View.INVISIBLE);
+                btnSwap.setVisibility(View.INVISIBLE);
                 gridLayout.setEnabled(false);
                 running = false;
                 // 점수 저장
@@ -289,9 +322,27 @@ public class GameActivity extends AppCompatActivity {
             @Override
             public void onFinish() {
                 textTimer.setText("Time: 0");
-                Toast.makeText(GameActivity.this, "⏰ Time's up! Final Score: " + score, Toast.LENGTH_LONG).show();
+                gridLayout.setEnabled(false);
+
+                textFinalScore.setText("Score: " + score);
+                scoreOverlay.setVisibility(View.VISIBLE);//게임종료에 따른 점수스크린
+                scoreOverlay.setBackgroundColor(Color.parseColor("#AAFFFFFF"));
+                textFinalScore.setTextColor(Color.BLACK);
+                scoreOverlay.setTranslationY(-700);
+                scoreOverlay.animate()
+                        .translationY(0)
+                        .setDuration(600)
+                        .setInterpolator(new DecelerateInterpolator())
+                        .start();
+                btnReturn.setVisibility(View.VISIBLE);
+                btnPause.setVisibility(View.GONE);
+                btnDestroy.setVisibility(View.INVISIBLE);
+                btnSwap.setVisibility(View.INVISIBLE);
                 gridLayout.setEnabled(false);
                 running = false;
+                // 점수 저장
+                ScoreDatabaseHelper dbHelper = new ScoreDatabaseHelper(GameActivity.this);
+                dbHelper.addScore(score);
             }
         };
         countDownTimer.start();
@@ -308,15 +359,13 @@ public class GameActivity extends AppCompatActivity {
     }
 
     private void setupItemButton() {
-        Button btnDestroy = findViewById(R.id.btnDsetroy);
-        Button btnSwap = findViewById(R.id.btnSwap);
-
         btnDestroy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if(destroyCount > 0) {
                     isDestroyedMode = true;
                     Toast.makeText(GameActivity.this, "🧨블록 제거 아이템 사용: 제거할 블록을 선택하세요!", Toast.LENGTH_SHORT).show();
+                    //Snackbar.make(root, "한순간만!", Snackbar.LENGTH_SHORT).setDuration(500).show(); //Tag:Suggest 제안사항 Toast message가 너무 긴 것 같으므로 시간을 조절할 수 있는 snackbar 제안
                 } else {
                     Toast.makeText(GameActivity.this, "❌블록 제거 아이템 없음.", Toast.LENGTH_SHORT).show();
                     btnDestroy.setVisibility(View.INVISIBLE);
@@ -341,7 +390,7 @@ public class GameActivity extends AppCompatActivity {
 
     private void destroySelectedBlock(int row, int col) {
         appleCells[row][col].setText("");
-        appleCells[row][col].setBackgroundColor(Color.LTGRAY);
+        appleCells[row][col].setBackgroundResource(R.drawable.pineapple_griddestroy);
         destroyCount--;
         Toast.makeText(GameActivity.this, "💥블록 제거!" + destroyCount + "개 남음", Toast.LENGTH_SHORT).show();
     }

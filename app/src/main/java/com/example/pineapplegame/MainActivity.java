@@ -1,10 +1,16 @@
 package com.example.pineapplegame;
 
+import android.animation.ValueAnimator;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.Matrix;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.LinearInterpolator;
 import android.widget.Button;
 import android.media.MediaPlayer;
+import android.widget.GridLayout;
+import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -40,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
     }
 
     @Override
