@@ -86,6 +86,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="블록 교환" />
+
+        <Button
+            android:id="@+id/btnHint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="힌트 (3/3)"
+            android:layout_alignParentEnd="true" />
     </LinearLayout>
 
     <LinearLayout
