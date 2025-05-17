@@ -1,0 +1,186 @@
+[
+    {
+        "merged": "C:\\Users\\PSJ\\.gradle\\daemon\\8.10.2\\com.example.pineapplegame.app-debug-32:\\layout_activity_option.xml.flat",
+        "source": "C:\\Users\\PSJ\\.gradle\\daemon\\8.10.2\\com.example.pineapplegame.app-main-34:\\layout\\activity_option.xml"
+    },
+    {
+        "merged": "C:\\Users\\PSJ\\.gradle\\daemon\\8.10.2\\com.example.pineapplegame.app-debug-32:\\mipmap-mdpi_ic_logo_round.webp.flat",
+        "source": "C:\\Users\\PSJ\\.gradle\\daemon\\8.10.2\\com.example.pineapplegame.app-main-34:\\mipmap-mdpi\\ic_logo_round.webp"
+    },
+    {
+        "merged": "C:\\Users\\PSJ\\.gradle\\daemon\\8.10.2\\com.example.pineapplegame.app-debug-32:\\mipmap-xxxhdpi_ic_logo_round.webp.flat",
+        "source": "C:\\Users\\PSJ\\.gradle\\daemon\\8.10.2\\com.example.pineapplegame.app-main-34:\\mipmap-xxxhdpi\\ic_logo_round.webp"
+    },
+    {
+        "merged": "C:\\Users\\PSJ\\.gradle\\daemon\\8.10.2\\com.example.pineapplegame.app-debug-32:\\mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "C:\\Users\\PSJ\\.gradle\\daemon\\8.10.2\\com.example.pineapplegame.app-main-34:\\mipmap-anydpi-v26\\ic_launcher.xml"
+    },
+    {
+        "merged": "C:\\Users\\PSJ\\.gradle\\daemon\\8.10.2\\com.example.pineapplegame.app-debug-32:\\mipmap-hdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\PSJ\\.gradle\\daemon\\8.10.2\\com.example.pineapplegame.app-main-34:\\mipmap-hdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "C:\\Users\\PSJ\\.gradle\\daemon\\8.10.2\\com.example.pineapplegame.app-debug-32:\\mipmap-xxhdpi_ic_logo_round.webp.flat",
+        "source": "C:\\Users\\PSJ\\.gradle\\daemon\\8.10.2\\com.example.pineapplegame.app-main-34:\\mipmap-xxhdpi\\ic_logo_round.webp"
+    },
+    {
+        "merged": "C:\\Users\\PSJ\\.gradle\\daemon\\8.10.2\\com.example.pineapplegame.app-debug-32:\\mipmap-xxxhdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\PSJ\\.gradle\\daemon\\8.10.2\\com.example.pineapplegame.app-main-34:\\mipmap-xxxhdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "C:\\Users\\PSJ\\.gradle\\daemon\\8.10.2\\com.example.pineapplegame.app-debug-32:\\mipmap-xxhdpi_ic_logo_foreground.webp.flat",
+        "source": "C:\\Users\\PSJ\\.gradle\\daemon\\8.10.2\\com.example.pineapplegame.app-main-34:\\mipmap-xxhdpi\\ic_logo_foreground.webp"
+    },
+    {
+        "merged": "C:\\Users\\PSJ\\.gradle\\daemon\\8.10.2\\com.example.pineapplegame.app-debug-32:\\mipmap-xxxhdpi_ic_logo.webp.flat",
+        "source": "C:\\Users\\PSJ\\.gradle\\daemon\\8.10.2\\com.example.pineapplegame.app-main-34:\\mipmap-xxxhdpi\\ic_logo.webp"
+    },
+    {
+        "merged": "C:\\Users\\PSJ\\.gradle\\daemon\\8.10.2\\com.example.pineapplegame.app-debug-32:\\mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "C:\\Users\\PSJ\\.gradle\\daemon\\8.10.2\\com.example.pineapplegame.app-main-34:\\mipmap-anydpi-v26\\ic_launcher_round.xml"
+    },
+    {
+        "merged": "C:\\Users\\PSJ\\.gradle\\daemon\\8.10.2\\com.example.pineapplegame.app-debug-32:\\mipmap-mdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\PSJ\\.gradle\\daemon\\8.10.2\\com.example.pineapplegame.app-main-34:\\mipmap-mdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "C:\\Users\\PSJ\\.gradle\\daemon\\8.10.2\\com.example.pineapplegame.app-debug-32:\\mipmap-mdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\PSJ\\.gradle\\daemon\\8.10.2\\com.example.pineapplegame.app-main-34:\\mipmap-mdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "C:\\Users\\PSJ\\.gradle\\daemon\\8.10.2\\com.example.pineapplegame.app-debug-32:\\mipmap-xxhdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\PSJ\\.gradle\\daemon\\8.10.2\\com.example.pineapplegame.app-main-34:\\mipmap-xxhdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "C:\\Users\\PSJ\\.gradle\\daemon\\8.10.2\\com.example.pineapplegame.app-debug-32:\\drawable_ic_logo_background.xml.flat",
+        "source": "C:\\Users\\PSJ\\.gradle\\daemon\\8.10.2\\com.example.pineapplegame.app-main-34:\\drawable\\ic_logo_background.xml"
+    },
+    {
+        "merged": "com.example.pineapplegame.app-debug-32:/layout_activity_game.xml.flat",
+        "source": "com.example.pineapplegame.app-main-34:/layout/activity_game.xml"
+    },
+    {
+        "merged": "C:\\Users\\PSJ\\.gradle\\daemon\\8.10.2\\com.example.pineapplegame.app-debug-32:\\mipmap-xxhdpi_ic_logo.webp.flat",
+        "source": "C:\\Users\\PSJ\\.gradle\\daemon\\8.10.2\\com.example.pineapplegame.app-main-34:\\mipmap-xxhdpi\\ic_logo.webp"
+    },
+    {
+        "merged": "C:\\Users\\PSJ\\.gradle\\daemon\\8.10.2\\com.example.pineapplegame.app-debug-32:\\mipmap-hdpi_ic_logo_foreground.webp.flat",
+        "source": "C:\\Users\\PSJ\\.gradle\\daemon\\8.10.2\\com.example.pineapplegame.app-main-34:\\mipmap-hdpi\\ic_logo_foreground.webp"
+    },
+    {
+        "merged": "C:\\Users\\PSJ\\.gradle\\daemon\\8.10.2\\com.example.pineapplegame.app-debug-32:\\mipmap-anydpi-v26_ic_logo_round.xml.flat",
+        "source": "C:\\Users\\PSJ\\.gradle\\daemon\\8.10.2\\com.example.pineapplegame.app-main-34:\\mipmap-anydpi-v26\\ic_logo_round.xml"
+    },
+    {
+        "merged": "C:\\Users\\PSJ\\.gradle\\daemon\\8.10.2\\com.example.pineapplegame.app-debug-32:\\mipmap-xxhdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\PSJ\\.gradle\\daemon\\8.10.2\\com.example.pineapplegame.app-main-34:\\mipmap-xxhdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "C:\\Users\\PSJ\\.gradle\\daemon\\8.10.2\\com.example.pineapplegame.app-debug-32:\\drawable_pineapple_grid.png.flat",
+        "source": "C:\\Users\\PSJ\\.gradle\\daemon\\8.10.2\\com.example.pineapplegame.app-main-34:\\drawable\\pineapple_grid.png"
+    },
+    {
+        "merged": "C:\\Users\\PSJ\\.gradle\\daemon\\8.10.2\\com.example.pineapplegame.app-debug-32:\\mipmap-xhdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\PSJ\\.gradle\\daemon\\8.10.2\\com.example.pineapplegame.app-main-34:\\mipmap-xhdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "C:\\Users\\PSJ\\.gradle\\daemon\\8.10.2\\com.example.pineapplegame.app-debug-32:\\mipmap-xhdpi_ic_logo_round.webp.flat",
+        "source": "C:\\Users\\PSJ\\.gradle\\daemon\\8.10.2\\com.example.pineapplegame.app-main-34:\\mipmap-xhdpi\\ic_logo_round.webp"
+    },
+    {
+        "merged": "C:\\Users\\PSJ\\.gradle\\daemon\\8.10.2\\com.example.pineapplegame.app-debug-32:\\layout_activity_main.xml.flat",
+        "source": "C:\\Users\\PSJ\\.gradle\\daemon\\8.10.2\\com.example.pineapplegame.app-main-34:\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "C:\\Users\\PSJ\\.gradle\\daemon\\8.10.2\\com.example.pineapplegame.app-debug-32:\\mipmap-xxxhdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\PSJ\\.gradle\\daemon\\8.10.2\\com.example.pineapplegame.app-main-34:\\mipmap-xxxhdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "C:\\Users\\PSJ\\.gradle\\daemon\\8.10.2\\com.example.pineapplegame.app-debug-32:\\mipmap-hdpi_ic_logo_round.webp.flat",
+        "source": "C:\\Users\\PSJ\\.gradle\\daemon\\8.10.2\\com.example.pineapplegame.app-main-34:\\mipmap-hdpi\\ic_logo_round.webp"
+    },
+    {
+        "merged": "C:\\Users\\PSJ\\.gradle\\daemon\\8.10.2\\com.example.pineapplegame.app-debug-32:\\layout_activity_game.xml.flat",
+        "source": "C:\\Users\\PSJ\\.gradle\\daemon\\8.10.2\\com.example.pineapplegame.app-main-34:\\layout\\activity_game.xml"
+    },
+    {
+        "merged": "C:\\Users\\PSJ\\.gradle\\daemon\\8.10.2\\com.example.pineapplegame.app-debug-32:\\drawable_pineapple_bg.png.flat",
+        "source": "C:\\Users\\PSJ\\.gradle\\daemon\\8.10.2\\com.example.pineapplegame.app-main-34:\\drawable\\pineapple_bg.png"
+    },
+    {
+        "merged": "C:\\Users\\PSJ\\.gradle\\daemon\\8.10.2\\com.example.pineapplegame.app-debug-32:\\mipmap-xhdpi_ic_logo.webp.flat",
+        "source": "C:\\Users\\PSJ\\.gradle\\daemon\\8.10.2\\com.example.pineapplegame.app-main-34:\\mipmap-xhdpi\\ic_logo.webp"
+    },
+    {
+        "merged": "C:\\Users\\PSJ\\.gradle\\daemon\\8.10.2\\com.example.pineapplegame.app-debug-32:\\xml_backup_rules.xml.flat",
+        "source": "C:\\Users\\PSJ\\.gradle\\daemon\\8.10.2\\com.example.pineapplegame.app-main-34:\\xml\\backup_rules.xml"
+    },
+    {
+        "merged": "C:\\Users\\PSJ\\.gradle\\daemon\\8.10.2\\com.example.pineapplegame.app-debug-32:\\mipmap-hdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\PSJ\\.gradle\\daemon\\8.10.2\\com.example.pineapplegame.app-main-34:\\mipmap-hdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "C:\\Users\\PSJ\\.gradle\\daemon\\8.10.2\\com.example.pineapplegame.app-debug-32:\\mipmap-mdpi_ic_logo.webp.flat",
+        "source": "C:\\Users\\PSJ\\.gradle\\daemon\\8.10.2\\com.example.pineapplegame.app-main-34:\\mipmap-mdpi\\ic_logo.webp"
+    },
+    {
+        "merged": "C:\\Users\\PSJ\\.gradle\\daemon\\8.10.2\\com.example.pineapplegame.app-debug-32:\\layout_activity_score.xml.flat",
+        "source": "C:\\Users\\PSJ\\.gradle\\daemon\\8.10.2\\com.example.pineapplegame.app-main-34:\\layout\\activity_score.xml"
+    },
+    {
+        "merged": "C:\\Users\\PSJ\\.gradle\\daemon\\8.10.2\\com.example.pineapplegame.app-debug-32:\\mipmap-hdpi_ic_logo.webp.flat",
+        "source": "C:\\Users\\PSJ\\.gradle\\daemon\\8.10.2\\com.example.pineapplegame.app-main-34:\\mipmap-hdpi\\ic_logo.webp"
+    },
+    {
+        "merged": "C:\\Users\\PSJ\\.gradle\\daemon\\8.10.2\\com.example.pineapplegame.app-debug-32:\\xml_data_extraction_rules.xml.flat",
+        "source": "C:\\Users\\PSJ\\.gradle\\daemon\\8.10.2\\com.example.pineapplegame.app-main-34:\\xml\\data_extraction_rules.xml"
+    },
+    {
+        "merged": "C:\\Users\\PSJ\\.gradle\\daemon\\8.10.2\\com.example.pineapplegame.app-debug-32:\\mipmap-mdpi_ic_logo_foreground.webp.flat",
+        "source": "C:\\Users\\PSJ\\.gradle\\daemon\\8.10.2\\com.example.pineapplegame.app-main-34:\\mipmap-mdpi\\ic_logo_foreground.webp"
+    },
+    {
+        "merged": "C:\\Users\\PSJ\\.gradle\\daemon\\8.10.2\\com.example.pineapplegame.app-debug-32:\\drawable_pineapple_gridselect.png.flat",
+        "source": "C:\\Users\\PSJ\\.gradle\\daemon\\8.10.2\\com.example.pineapplegame.app-main-34:\\drawable\\pineapple_gridselect.png"
+    },
+    {
+        "merged": "C:\\Users\\PSJ\\.gradle\\daemon\\8.10.2\\com.example.pineapplegame.app-debug-32:\\mipmap-xhdpi_ic_logo_foreground.webp.flat",
+        "source": "C:\\Users\\PSJ\\.gradle\\daemon\\8.10.2\\com.example.pineapplegame.app-main-34:\\mipmap-xhdpi\\ic_logo_foreground.webp"
+    },
+    {
+        "merged": "C:\\Users\\PSJ\\.gradle\\daemon\\8.10.2\\com.example.pineapplegame.app-debug-32:\\mipmap-xxxhdpi_ic_logo_foreground.webp.flat",
+        "source": "C:\\Users\\PSJ\\.gradle\\daemon\\8.10.2\\com.example.pineapplegame.app-main-34:\\mipmap-xxxhdpi\\ic_logo_foreground.webp"
+    },
+    {
+        "merged": "C:\\Users\\PSJ\\.gradle\\daemon\\8.10.2\\com.example.pineapplegame.app-debug-32:\\raw_test.mp3.flat",
+        "source": "C:\\Users\\PSJ\\.gradle\\daemon\\8.10.2\\com.example.pineapplegame.app-main-34:\\raw\\test.mp3"
+    },
+    {
+        "merged": "C:\\Users\\PSJ\\.gradle\\daemon\\8.10.2\\com.example.pineapplegame.app-debug-32:\\drawable_pineapple_logo.png.flat",
+        "source": "C:\\Users\\PSJ\\.gradle\\daemon\\8.10.2\\com.example.pineapplegame.app-main-34:\\drawable\\pineapple_logo.png"
+    },
+    {
+        "merged": "C:\\Users\\PSJ\\.gradle\\daemon\\8.10.2\\com.example.pineapplegame.app-debug-32:\\drawable_ic_launcher_background.xml.flat",
+        "source": "C:\\Users\\PSJ\\.gradle\\daemon\\8.10.2\\com.example.pineapplegame.app-main-34:\\drawable\\ic_launcher_background.xml"
+    },
+    {
+        "merged": "C:\\Users\\PSJ\\.gradle\\daemon\\8.10.2\\com.example.pineapplegame.app-debug-32:\\mipmap-anydpi-v26_ic_logo.xml.flat",
+        "source": "C:\\Users\\PSJ\\.gradle\\daemon\\8.10.2\\com.example.pineapplegame.app-main-34:\\mipmap-anydpi-v26\\ic_logo.xml"
+    },
+    {
+        "merged": "C:\\Users\\PSJ\\.gradle\\daemon\\8.10.2\\com.example.pineapplegame.app-debug-32:\\drawable_pineapple_griddestroy.png.flat",
+        "source": "C:\\Users\\PSJ\\.gradle\\daemon\\8.10.2\\com.example.pineapplegame.app-main-34:\\drawable\\pineapple_griddestroy.png"
+    },
+    {
+        "merged": "C:\\Users\\PSJ\\.gradle\\daemon\\8.10.2\\com.example.pineapplegame.app-debug-32:\\mipmap-xhdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\PSJ\\.gradle\\daemon\\8.10.2\\com.example.pineapplegame.app-main-34:\\mipmap-xhdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "C:\\Users\\PSJ\\.gradle\\daemon\\8.10.2\\com.example.pineapplegame.app-debug-32:\\drawable_bg.xml.flat",
+        "source": "C:\\Users\\PSJ\\.gradle\\daemon\\8.10.2\\com.example.pineapplegame.app-main-34:\\drawable\\bg.xml"
+    },
+    {
+        "merged": "C:\\Users\\PSJ\\.gradle\\daemon\\8.10.2\\com.example.pineapplegame.app-debug-32:\\drawable_ic_launcher_foreground.xml.flat",
+        "source": "C:\\Users\\PSJ\\.gradle\\daemon\\8.10.2\\com.example.pineapplegame.app-main-34:\\drawable\\ic_launcher_foreground.xml"
+    }
+]
