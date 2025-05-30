@@ -3,14 +3,26 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
-
     android:fitsSystemWindows="true" >
+
     <com.example.pineapplegame.TiledBackgroundView
         android:id="@+id/movingPineapple"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#FFE76B"
         />
+
+    <Button
+        android:id="@+id/btnLogin"
+        style="@style/LobbyButtonStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="로그인"
+        android:layout_gravity="top|end"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        />
+
     <ImageView
         android:id="@+id/logoImage"
         android:layout_width="200dp"

@@ -1,5 +1,6 @@
 package com.example.pineapplegame;
 
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.AnimationDrawable;
 import android.graphics.drawable.ColorDrawable;
@@ -84,7 +85,7 @@ public class GameActivity extends AppCompatActivity {
         btnReturn = findViewById(R.id.btnReturn);
         scoreOverlay = findViewById(R.id.scoreOverlay);
         textFinalScore = findViewById(R.id.textFinalScore);
-        btnDestroy = findViewById(R.id.btnDsetroy);
+        btnDestroy = findViewById(R.id.btnDestroy);
         btnSwap = findViewById(R.id.btnSwap);
         btnHint = findViewById(R.id.btnHint); // 힌트 연결
         updateHintButtonText();
@@ -337,7 +338,10 @@ public class GameActivity extends AppCompatActivity {
                 // 점수 저장
                 ScoreDatabaseHelper dbHelper = new ScoreDatabaseHelper(GameActivity.this);
                 dbHelper.addScore(score);
-                uploadScoreWithLimit("Player456", score); // ← 나중에 닉네임 변수로 교체 가능
+                SharedPreferences prefs = getSharedPreferences("UserPrefs", MODE_PRIVATE);
+                String nickname = prefs.getString("nickname", "Noname"); // 기본값은 "Noname"
+                Log.d("ScoreUpload", "Uploading score. Nickname: " + nickname + ", Score: " + score);
+                uploadScoreWithLimit(nickname, score);
             }
         };
         countDownTimer.start();
@@ -382,6 +386,9 @@ public class GameActivity extends AppCompatActivity {
                 // 점수 저장
                 ScoreDatabaseHelper dbHelper = new ScoreDatabaseHelper(GameActivity.this);
                 dbHelper.addScore(score);
+                SharedPreferences prefs = getSharedPreferences("UserPrefs", MODE_PRIVATE);
+                String nickname = prefs.getString("nickname", "Noname"); // 기본값은 "Noname"
+                uploadScoreWithLimit(nickname, score);
             }
         };
         countDownTimer.start();
