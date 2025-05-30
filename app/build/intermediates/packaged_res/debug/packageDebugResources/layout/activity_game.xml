@@ -80,14 +80,18 @@
             android:id="@+id/btnDsetroy"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/button_background_selector_rnd"
+            style="@style/LobbyButtonStyle"
+            android:textSize="15sp"
+            android:elevation="0dp"
             android:text="블록 제거" />
 
         <Button
             android:id="@+id/btnSwap"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/button_background_selector_rnd"
+            style="@style/LobbyButtonStyle"
+            android:textSize="15sp"
+            android:elevation="0dp"
             android:text="블록 교환" />
 
         <Button
@@ -95,7 +99,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="힌트 (3/3)"
-            android:background="@drawable/button_background_selector_rnd"
+            style="@style/LobbyButtonStyle"
+            android:textSize="15sp"
+            android:elevation="0dp"
             android:layout_alignParentEnd="true" />
     </LinearLayout>
 
@@ -111,7 +117,9 @@
         android:layout_height="wrap_content"
         android:text="일시정지"
         android:layout_gravity="center_horizontal"
-        android:background="@drawable/button_background_selector_rec"
+        style="@style/LobbyButtonStyle"
+        android:textSize="15sp"
+        android:elevation="0dp"
         android:layout_marginTop="16dp"/>
 
     <Button
@@ -120,7 +128,9 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="16dp"
-        android:background="@drawable/button_background_selector_rec"
+        style="@style/LobbyButtonStyle"
+        android:textSize="15sp"
+        android:elevation="0dp"
         android:text="처음 화면으로" />
     </LinearLayout>
     </LinearLayout>

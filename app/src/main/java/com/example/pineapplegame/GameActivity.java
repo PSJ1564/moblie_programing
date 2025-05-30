@@ -329,9 +329,9 @@ public class GameActivity extends AppCompatActivity {
                         .start();
                 btnReturn.setVisibility(View.VISIBLE);
                 btnPause.setVisibility(View.GONE);
-                btnDestroy.setVisibility(View.INVISIBLE);
-                btnSwap.setVisibility(View.INVISIBLE);
-                btnHint.setVisibility(View.INVISIBLE);
+                btnDestroy.setVisibility(View.GONE);
+                btnSwap.setVisibility(View.GONE);
+                btnHint.setVisibility(View.GONE);
                 gridLayout.setEnabled(false);
                 running = false;
                 // 점수 저장
@@ -374,8 +374,9 @@ public class GameActivity extends AppCompatActivity {
                         .start();
                 btnReturn.setVisibility(View.VISIBLE);
                 btnPause.setVisibility(View.GONE);
-                btnDestroy.setVisibility(View.INVISIBLE);
-                btnSwap.setVisibility(View.INVISIBLE);
+                btnDestroy.setVisibility(View.GONE);
+                btnSwap.setVisibility(View.GONE);
+                btnHint.setVisibility(View.GONE);
                 gridLayout.setEnabled(false);
                 running = false;
                 // 점수 저장
@@ -408,6 +409,7 @@ public class GameActivity extends AppCompatActivity {
                     Toast.makeText(GameActivity.this, "❌블록 제거 아이템 없음.", Toast.LENGTH_SHORT).show();
                     btnDestroy.setVisibility(View.INVISIBLE);
                 }
+
             }
         });
 
@@ -429,6 +431,7 @@ public class GameActivity extends AppCompatActivity {
     private void destroySelectedBlock(int row, int col) {
         appleCells[row][col].setBackgroundResource(R.drawable.explosion_anim);
         AnimationDrawable explosion = (AnimationDrawable) appleCells[row][col].getBackground();
+        explosion.start();
 
         // 블록 제거 처리
         appleCells[row][col].setText("");
@@ -437,7 +440,7 @@ public class GameActivity extends AppCompatActivity {
         //일정 시간 후 원래 배경으로 복원
         new Handler().postDelayed(() -> {
             appleCells[row][col].setBackgroundResource(R.drawable.pineapple_griddestroy);
-        }, 500);
+        }, 10000);
         Toast.makeText(GameActivity.this, "💥블록 제거!" + destroyCount + "개 남음", Toast.LENGTH_SHORT).show();
     }
 
