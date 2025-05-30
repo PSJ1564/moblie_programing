@@ -43,6 +43,12 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        Button btnLogin = findViewById(R.id.btnLogin);
+        btnLogin.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+            startActivity(intent);
+        });
+
         Button buttonScore = findViewById(R.id.buttonScore);
         buttonScore.setOnClickListener(new View.OnClickListener() {
             @Override
