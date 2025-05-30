@@ -31,8 +31,7 @@ public class ScoreActivity extends AppCompatActivity {
 
         // 돌아가기 버튼 클릭 시 MainActivity로 이동
         btnBackToMain.setOnClickListener(v -> {
-            Intent intent = new Intent(ScoreActivity.this, MainActivity.class);
-            startActivity(intent);
+            finish();
         });
     }
 

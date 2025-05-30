@@ -59,8 +59,7 @@ public class OptionActivity extends AppCompatActivity {
 
         // 메인 화면으로 돌아가는 버튼 클릭 리스너
         mainButton.setOnClickListener(v -> {
-            Intent intent = new Intent(OptionActivity.this, MainActivity.class);
-            startActivity(intent);
+            finish();
         });
     }
 

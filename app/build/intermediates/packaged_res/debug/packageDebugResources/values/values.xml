@@ -8,6 +8,20 @@
     <color name="teal_700">#FF018786</color>
     <color name="white">#FFFFFFFF</color>
     <string name="app_name">PineappleGame</string>
+    <string name="gcm_defaultSenderId" translatable="false">432947851919</string>
+    <string name="google_api_key" translatable="false">AIzaSyDYVYsgsK9IQZ_3dh1a__VfQWFpc_idZe4</string>
+    <string name="google_app_id" translatable="false">1:432947851919:android:f768410dabfc87f7bd36fa</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyDYVYsgsK9IQZ_3dh1a__VfQWFpc_idZe4</string>
+    <string name="google_storage_bucket" translatable="false">pineapplegame-af9bc.firebasestorage.app</string>
+    <string name="project_id" translatable="false">pineapplegame-af9bc</string>
+    <style name="LobbyButtonStyle">
+        <item name="android:background">@drawable/lobby_button</item>
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:padding">12dp</item>
+        <item name="android:elevation">5dp</item>
+        <item name="android:fontFamily">@font/cookierun</item>
+    </style>
     <style name="Theme.PineappleGame" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
         
         <item name="colorPrimary">@color/purple_500</item>

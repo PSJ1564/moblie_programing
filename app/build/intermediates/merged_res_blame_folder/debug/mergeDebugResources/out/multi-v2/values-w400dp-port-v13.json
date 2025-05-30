@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.pineapplegame.app-mergeDebugResources-30:/values-w400dp-port-v13/values-w400dp-port-v13.xml",
+            "outputFile": "com.example.pineapplegame.app-mergeDebugResources-36:/values-w400dp-port-v13/values-w400dp-port-v13.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\PSJ\\.gradle\\caches\\8.10.2\\transforms\\149b1ee956b531a509b1145f23af4b93\\transformed\\material-1.12.0\\res\\values-w400dp-port-v13\\values-w400dp-port-v13.xml",
+                    "source": "C:\\Users\\navym\\.gradle\\caches\\8.10.2\\transforms\\085bea8cba8e3e6fb512239b4b319889\\transformed\\material-1.12.0\\res\\values-w400dp-port-v13\\values-w400dp-port-v13.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9",
                         "startColumns": "4,4,4,4,4,4,4,4",

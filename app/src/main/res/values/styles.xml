@@ -1,3 +1,10 @@
-<?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <style name="LobbyButtonStyle">
+        <item name="android:background">@drawable/lobby_button</item>
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:padding">12dp</item>
+        <item name="android:elevation">5dp</item>
+        <item name="android:fontFamily">@font/cookierun</item>
+    </style>
 </resources>

@@ -1,9 +1,12 @@
 package com.example.pineapplegame;
 
 import android.graphics.Color;
+import android.graphics.drawable.AnimationDrawable;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.os.Handler;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.MotionEvent;
 import android.view.View;
@@ -15,11 +18,22 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.snackbar.Snackbar;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.Random;
+import java.util.UUID;
 
 public class GameActivity extends AppCompatActivity {
     private static final int GRID_ROWS = 12;
@@ -174,10 +188,17 @@ public class GameActivity extends AppCompatActivity {
                 int gridX = (int) event.getRawX() - gridLocation[0];
                 int gridY = (int) event.getRawY() - gridLocation[1];
 
-                int margin = 4;
-                int col = gridX / (cellSize + margin);
-                int row = gridY / (cellSize + margin);
+                int gridWidth = gridLayout.getWidth();
+                int gridHeight = gridLayout.getHeight();
+                int cellWidth = gridWidth / GRID_COLS;
+                int cellHeight = gridHeight / GRID_ROWS;
 
+                int col = (int)((gridX * 0.995f) / (cellWidth-4));
+                int row = (int)((gridY*1.2f) / (cellHeight-4));
+
+                Log.d("TouchDebug", "gridLayout H: " + gridLayout.getHeight() + ", W: " + gridLayout.getWidth());
+                Log.d("TouchDebug", "TouchX: " + gridX + ", TouchY: " + gridY);
+                Log.d("TouchDebug", "Computed Row: " + row + ", Col: " + col);
                 if (row >= GRID_ROWS || col >= GRID_COLS || row < 0 || col < 0)
                     return false;
 
@@ -310,11 +331,13 @@ public class GameActivity extends AppCompatActivity {
                 btnPause.setVisibility(View.GONE);
                 btnDestroy.setVisibility(View.INVISIBLE);
                 btnSwap.setVisibility(View.INVISIBLE);
+                btnHint.setVisibility(View.INVISIBLE);
                 gridLayout.setEnabled(false);
                 running = false;
                 // 점수 저장
                 ScoreDatabaseHelper dbHelper = new ScoreDatabaseHelper(GameActivity.this);
                 dbHelper.addScore(score);
+                uploadScoreWithLimit("Player456", score); // ← 나중에 닉네임 변수로 교체 가능
             }
         };
         countDownTimer.start();
@@ -404,9 +427,17 @@ public class GameActivity extends AppCompatActivity {
     }
 
     private void destroySelectedBlock(int row, int col) {
+        appleCells[row][col].setBackgroundResource(R.drawable.explosion_anim);
+        AnimationDrawable explosion = (AnimationDrawable) appleCells[row][col].getBackground();
+
+        // 블록 제거 처리
         appleCells[row][col].setText("");
-        appleCells[row][col].setBackgroundResource(R.drawable.pineapple_griddestroy);
         destroyCount--;
+
+        //일정 시간 후 원래 배경으로 복원
+        new Handler().postDelayed(() -> {
+            appleCells[row][col].setBackgroundResource(R.drawable.pineapple_griddestroy);
+        }, 500);
         Toast.makeText(GameActivity.this, "💥블록 제거!" + destroyCount + "개 남음", Toast.LENGTH_SHORT).show();
     }
 
@@ -415,14 +446,25 @@ public class GameActivity extends AppCompatActivity {
             firstSwapRow = row;
             firstSwapCol = col;
             isFirstSwapSelected = true;
-            Toast.makeText(GameActivity.this, "첫 번째 블록 선택됨.", Toast.LENGTH_SHORT).show();
+
+            appleCells[row][col].setBackgroundResource(R.drawable.pineapple_gridselect);
+
         } else {
+
+            appleCells[row][col].setBackgroundResource(R.drawable.pineapple_gridselect);
+
             CharSequence temp = appleCells[row][col].getText();
             appleCells[row][col].setText(appleCells[firstSwapRow][firstSwapCol].getText());
             appleCells[firstSwapRow][firstSwapCol].setText(temp);
 
             swapCount--;
             Toast.makeText(GameActivity.this, "🔄블록 교환 완료!" + swapCount + "개 남음", Toast.LENGTH_SHORT).show();
+
+            new Handler().postDelayed(() -> {
+                appleCells[firstSwapRow][firstSwapCol].setBackgroundResource(R.drawable.pineapple_grid);
+                appleCells[row][col].setBackgroundResource(R.drawable.pineapple_grid);
+            }, 500);
+
             isFirstSwapSelected = false;
             isSwapMode = false;
         }
@@ -473,4 +515,63 @@ public class GameActivity extends AppCompatActivity {
 
         Toast.makeText(this, "❌ 가능한 조합이 없습니다!", Toast.LENGTH_SHORT).show();
     }
+
+    private void uploadScoreWithLimit(String nickname, int newScore) {
+        DatabaseReference dbRef = FirebaseDatabase.getInstance().getReference("rankings");
+
+        dbRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                List<DataSnapshot> entries = new ArrayList<>();
+                for (DataSnapshot child : snapshot.getChildren()) {
+                    entries.add(child);
+                }
+
+                // 10개 미만이면 그냥 저장
+                if (entries.size() < 10) {
+                    saveScore(dbRef, nickname, newScore);
+                } else {
+                    // 최저 점수 찾기
+                    DataSnapshot lowestSnapshot = null;
+                    int minScore = Integer.MAX_VALUE;
+
+                    for (DataSnapshot entry : entries) {
+                        Integer score = entry.child("score").getValue(Integer.class);
+                        if (score != null && score < minScore) {
+                            minScore = score;
+                            lowestSnapshot = entry;
+                        }
+                    }
+
+                    // 새 점수가 더 크면 → 최저점 제거 후 저장
+                    if (newScore > minScore && lowestSnapshot != null) {
+                        lowestSnapshot.getRef().removeValue()
+                                .addOnSuccessListener(aVoid -> saveScore(dbRef, nickname, newScore));
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Toast.makeText(GameActivity.this, "🔥 랭킹 업로드 실패", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+    private void saveScore(DatabaseReference dbRef, String nickname, int score) {
+        String key = UUID.randomUUID().toString();
+
+        Map<String, Object> data = new HashMap<>();
+        data.put("nickname", nickname);
+        data.put("score", score);
+        data.put("timestamp", System.currentTimeMillis());
+
+        dbRef.child(key).setValue(data)
+                .addOnSuccessListener(aVoid ->
+                        Toast.makeText(GameActivity.this, "✅ 점수 저장 완료!", Toast.LENGTH_SHORT).show()
+                )
+                .addOnFailureListener(e ->
+                        Toast.makeText(GameActivity.this, "❌ 저장 실패: " + e.getMessage(), Toast.LENGTH_SHORT).show()
+                );
+    }
+
 }

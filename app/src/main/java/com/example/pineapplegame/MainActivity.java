@@ -6,10 +6,13 @@ import android.graphics.Color;
 import android.graphics.Matrix;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.view.animation.LinearInterpolator;
 import android.widget.Button;
 import android.media.MediaPlayer;
 import android.widget.GridLayout;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,6 +23,17 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        ImageView logo = findViewById(R.id.logoImage);
+        logo.setVisibility(View.VISIBLE);
+        Animation anim = AnimationUtils.loadAnimation(this, R.anim.pop_in);
+        logo.startAnimation(anim);
+
+        Button btnRanking = findViewById(R.id.btnRanking);
+
+        btnRanking.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, RankingActivity.class);
+            startActivity(intent);
+        });
         Button btnStart = findViewById(R.id.btnStartGame);
         btnStart.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -38,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        Button buttonSetting = findViewById(R.id.buttonSetting);
+        ImageButton buttonSetting = findViewById(R.id.buttonSetting);
         buttonSetting.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
