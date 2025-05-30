@@ -3288,7 +3288,7 @@ id browser_actions_menu_items
 id browser_actions_menu_view
 id btnBack
 id btnBackToMain
-id btnDsetroy
+id btnDestroy
 id btnHint
 id btnLogin
 id btnMain
@@ -3458,6 +3458,7 @@ id line3
 id linear
 id listMode
 id list_item
+id login
 id logoImage
 id m3_side_sheet
 id main
@@ -3580,6 +3581,7 @@ id radio
 id rankingListView
 id ratio
 id rectangles
+id register
 id report_drawn
 id reverseSawtooth
 id right

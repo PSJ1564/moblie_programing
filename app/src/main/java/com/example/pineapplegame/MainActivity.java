@@ -2,6 +2,7 @@ package com.example.pineapplegame;
 
 import android.animation.ValueAnimator;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.Matrix;
 import android.os.Bundle;
@@ -14,10 +15,18 @@ import android.media.MediaPlayer;
 import android.widget.GridLayout;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
+
+    private Button btnLogin;
+    private SharedPreferences sharedPreferences;
+    private static final String PREFS_NAME = "UserPrefs";
+    private static final String KEY_IS_LOGGED_IN = "isLoggedIn";
+    private static final String KEY_USER_ID = "userId";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(MainActivity.this, RankingActivity.class);
             startActivity(intent);
         });
+
         Button btnStart = findViewById(R.id.btnStartGame);
         btnStart.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -43,11 +53,23 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        Button btnLogin = findViewById(R.id.btnLogin);
+        btnLogin = findViewById(R.id.btnLogin);
+        sharedPreferences = getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
+
         btnLogin.setOnClickListener(v -> {
-            Intent intent = new Intent(MainActivity.this, LoginActivity.class);
-            startActivity(intent);
+            boolean isLoggedIn = sharedPreferences.getBoolean(KEY_IS_LOGGED_IN, false);
+            if (!isLoggedIn) {
+                // 로그인 안 된 상태면 LoginActivity 실행
+                Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+                startActivity(intent);
+            } else {
+                // 로그인 상태면 로그아웃 처리
+                logout();
+            }
         });
+
+        // 로그인 상태에 따라 버튼 텍스트 변경
+        updateLoginButton();
 
         Button buttonScore = findViewById(R.id.buttonScore);
         buttonScore.setOnClickListener(new View.OnClickListener() {
@@ -67,6 +89,32 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    private void updateLoginButton() {
+        boolean isLoggedIn = sharedPreferences.getBoolean(KEY_IS_LOGGED_IN, false);
+        if (isLoggedIn) {
+            String userId = sharedPreferences.getString(KEY_USER_ID, "");
+            btnLogin.setText("로그아웃 (" + userId + ")");
+        } else {
+            btnLogin.setText("로그인");
+        }
+    }
+
+    private void logout() {
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putBoolean(KEY_IS_LOGGED_IN, false);
+        editor.putString(KEY_USER_ID, "");
+        editor.apply();
+
+        Toast.makeText(this, "로그아웃 되었습니다.", Toast.LENGTH_SHORT).show();
+        updateLoginButton();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        updateLoginButton();
     }
 
     @Override

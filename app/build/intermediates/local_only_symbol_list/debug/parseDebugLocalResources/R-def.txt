@@ -29,7 +29,7 @@ drawable pineapple_logo
 font cookierun
 id btnBack
 id btnBackToMain
-id btnDsetroy
+id btnDestroy
 id btnHint
 id btnLogin
 id btnMain
@@ -52,10 +52,12 @@ id gridLayout
 id itembtn
 id labelBgm
 id labelSfx
+id login
 id logoImage
 id main
 id movingPineapple
 id rankingListView
+id register
 id root
 id scoreOverlay
 id state

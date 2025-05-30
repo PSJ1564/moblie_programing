@@ -8,14 +8,13 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class RegisterActivity extends AppCompatActivity {
 
     private EditText editNickname, editId, editPassword;
-    private FirebaseAuth mAuth;
     private DatabaseReference dbRef;
 
     @Override
@@ -29,12 +28,10 @@ public class RegisterActivity extends AppCompatActivity {
         Button btnRegister = findViewById(R.id.btnRegister);
         Button btnBack = findViewById(R.id.btnBack);
 
-        mAuth = FirebaseAuth.getInstance();
         dbRef = FirebaseDatabase.getInstance().getReference("users");
 
         btnRegister.setOnClickListener(v -> registerUser());
 
-        // 뒤로가기 버튼 클릭 시
         btnBack.setOnClickListener(v -> {
             Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
@@ -53,31 +50,46 @@ public class RegisterActivity extends AppCompatActivity {
             return;
         }
 
-        mAuth.createUserWithEmailAndPassword(id, password)
-                .addOnCompleteListener(task -> {
-                    if (task.isSuccessful()) {
-                        String uid = mAuth.getCurrentUser().getUid();
-                        dbRef.child(uid).setValue(new User(nickname, id, 0)); // 초기 점수 0
-                        Toast.makeText(this, "회원가입 성공", Toast.LENGTH_SHORT).show();
-                        finish(); // 회원가입 후 로그인 화면 등으로 이동
-                    } else {
-                        Toast.makeText(this, "회원가입 실패: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+        dbRef.get().addOnCompleteListener(task -> {
+            if (task.isSuccessful()) {
+                boolean nicknameExists = false;
+                boolean idExists = false;
+
+                for (DataSnapshot snapshot : task.getResult().getChildren()) {
+                    User user = snapshot.getValue(User.class);
+                    if (user != null) {
+                        if (user.nickname.equals(nickname)) nicknameExists = true;
+                        if (user.id.equals(id)) idExists = true;
                     }
-                });
+                }
+
+                if (nicknameExists) {
+                    Toast.makeText(this, "닉네임이 이미 존재합니다.", Toast.LENGTH_SHORT).show();
+                } else if (idExists) {
+                    Toast.makeText(this, "아이디가 이미 존재합니다.", Toast.LENGTH_SHORT).show();
+                } else {
+                    String userKey = dbRef.push().getKey(); // 고유 키 생성
+                    dbRef.child(userKey).setValue(new User(nickname, id, password, 0));
+                    Toast.makeText(this, "회원가입 성공", Toast.LENGTH_SHORT).show();
+                    finish();
+                }
+            } else {
+                Toast.makeText(this, "데이터베이스 오류", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     public static class User {
         public String nickname;
         public String id;
+        public String password;
         public int score;
 
-        public User() {} // Firebase용 빈 생성자
-
-        public User(String nickname, String id, int score) {
+        public User(String nickname, String id, String password, int score) {
             this.nickname = nickname;
             this.id = id;
+            this.password = password;
             this.score = score;
         }
     }
 }
-
