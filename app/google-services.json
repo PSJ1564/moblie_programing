@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "432947851919",
+    "project_id": "pineapplegame-af9bc",
+    "storage_bucket": "pineapplegame-af9bc.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:432947851919:android:f768410dabfc87f7bd36fa",
+        "android_client_info": {
+          "package_name": "com.example.pineapplegame"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDYVYsgsK9IQZ_3dh1a__VfQWFpc_idZe4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
