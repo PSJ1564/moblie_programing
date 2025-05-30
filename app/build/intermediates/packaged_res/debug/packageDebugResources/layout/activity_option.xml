@@ -1,0 +1,84 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
+    <com.example.pineapplegame.TiledBackgroundView
+        android:id="@+id/movingPineapple"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#D8FF6B"
+        android:alpha="0.3"
+        />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="24dp"
+        android:gravity="center_horizontal"
+        android:alpha="1.0"
+        >
+
+        <!-- 상단 타이틀 -->
+        <TextView
+            android:id="@+id/titleSetting"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="SETTING"
+            android:textSize="50sp"
+            android:gravity="center"
+            android:layout_marginTop="32dp"
+            android:textStyle="bold" />
+
+        <!-- 배경음 라벨 -->
+        <TextView
+            android:id="@+id/labelBgm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="BGM"
+            android:textSize="18sp"
+            android:layout_below="@id/titleSetting"
+            android:layout_marginTop="48dp"
+            android:layout_alignParentStart="true" />
+
+        <!-- 배경음 버튼 -->
+        <Button
+            android:id="@+id/btnMusic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Play Music"
+            android:layout_alignBaseline="@id/labelBgm"
+            android:layout_toEndOf="@id/labelBgm"
+            android:layout_marginStart="16dp" />
+
+        <!-- 효과음 라벨 -->
+        <TextView
+            android:id="@+id/labelSfx"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="SFX"
+            android:textSize="18sp"
+            android:layout_below="@+id/labelBgm"
+            android:layout_marginTop="45dp"
+            android:layout_alignParentStart="true" />
+
+        <Button
+            android:id="@+id/btnSfx"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/btnMusic"
+            android:layout_marginStart="22dp"
+            android:layout_marginTop="22dp"
+            android:layout_toRightOf="@+id/labelSfx"
+            android:text="Toggle SFX" />
+
+        <Button
+            android:id="@+id/btnMain"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="돌아가기"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="24dp" />
+    </RelativeLayout>
+
+</FrameLayout>
