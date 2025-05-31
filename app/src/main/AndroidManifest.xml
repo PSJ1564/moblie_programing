@@ -16,6 +16,7 @@
             android:enabled="true"
             android:exported="true">
         </service>
+
         <activity android:name=".RankingActivity"
             android:exported="false" />
         <activity android:name=".RegisterActivity"
@@ -26,10 +27,16 @@
             android:name=".GameActivity"
             android:exported="false" />
         <activity
+            android:name=".ItemModeActivity"
+            android:exported="false" />
+        <activity
             android:name=".OptionActivity"
             android:exported="false" />
         <activity
             android:name=".ScoreActivity"
+            android:exported="false" />
+        <activity
+            android:name=".HelpActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

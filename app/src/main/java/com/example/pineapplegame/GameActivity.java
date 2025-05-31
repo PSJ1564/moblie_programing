@@ -38,7 +38,7 @@ import java.util.UUID;
 
 public class GameActivity extends AppCompatActivity {
     private static final int GRID_ROWS = 12;
-    private static final int GRID_COLS = 10;
+    private static final int GRID_COLS = 8;
     private GridLayout gridLayout;
     private LinearLayout state;
     private FrameLayout root;//id:main rootview임
@@ -47,7 +47,7 @@ public class GameActivity extends AppCompatActivity {
     private View scoreOverlay;
     private TextView textFinalScore;
 
-    private int cellSize = 90;
+    private int cellSize = 110;
 
     private int startRow = -1, startCol = -1;
 
@@ -58,19 +58,9 @@ public class GameActivity extends AppCompatActivity {
     private int comboScore = 0;
     private long remainingTime = 0;
     private final long totalTime = 60 * 1000; // 120초
-    private Button btnHint; //힌트
-    private int hintCount = 3; // 힌트
-    private int destroyCount = 3;
-    private int swapCount = 3;
-    private enum Mode { NORMAL, DESTROY, SWAP }
-    private Mode currentMode = Mode.NORMAL;
-    private boolean isDestroyedMode = false;
-    private boolean isSwapMode = false;
-    private boolean isFirstSwapSelected = false;
     private boolean running = true;
     private boolean combo = false;
-    private int firstSwapRow, firstSwapCol;
-    private Button btnPause, btnReturn, btnDestroy, btnSwap;
+    private Button btnPause, btnReturn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -85,21 +75,7 @@ public class GameActivity extends AppCompatActivity {
         btnReturn = findViewById(R.id.btnReturn);
         scoreOverlay = findViewById(R.id.scoreOverlay);
         textFinalScore = findViewById(R.id.textFinalScore);
-        btnDestroy = findViewById(R.id.btnDestroy);
-        btnSwap = findViewById(R.id.btnSwap);
-        btnHint = findViewById(R.id.btnHint); // 힌트 연결
-        updateHintButtonText();
 
-        btnHint.setOnClickListener(v -> {
-            if (hintCount > 0) {
-                hintCount--;
-                updateHintButtonText();
-                showHint(); // 힌트 표시 함수 호출
-                if (hintCount == 0) {
-                    Toast.makeText(this, "💡 힌트 모두 사용!", Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
         btnPause.setOnClickListener(v -> {
             if(running) {
                 pauseTimer();
@@ -115,7 +91,6 @@ public class GameActivity extends AppCompatActivity {
         });
 
         setupReturnButton();
-        setupItemButton();
 
         createAppleGrid();
         setTouchListener();
@@ -194,12 +169,13 @@ public class GameActivity extends AppCompatActivity {
                 int cellWidth = gridWidth / GRID_COLS;
                 int cellHeight = gridHeight / GRID_ROWS;
 
-                int col = (int)((gridX * 0.995f) / (cellWidth-4));
-                int row = (int)((gridY*1.2f) / (cellHeight-4));
+                int col = (int)((gridX) / cellWidth);
+                int row = (int)((gridY*1.2f) / cellHeight);
 
                 Log.d("TouchDebug", "gridLayout H: " + gridLayout.getHeight() + ", W: " + gridLayout.getWidth());
                 Log.d("TouchDebug", "TouchX: " + gridX + ", TouchY: " + gridY);
                 Log.d("TouchDebug", "Computed Row: " + row + ", Col: " + col);
+
                 if (row >= GRID_ROWS || col >= GRID_COLS || row < 0 || col < 0)
                     return false;
 
@@ -207,12 +183,6 @@ public class GameActivity extends AppCompatActivity {
                     case MotionEvent.ACTION_DOWN:
                         startRow = row;
                         startCol = col;
-                        if (isDestroyedMode) {
-                            destroySelectedBlock(row, col);
-                            isDestroyedMode = false;
-                        } else if (isSwapMode) {
-                            handleSwapBlock(row, col);
-                        }
                         break;
 
                     case MotionEvent.ACTION_MOVE:
@@ -330,9 +300,6 @@ public class GameActivity extends AppCompatActivity {
                         .start();
                 btnReturn.setVisibility(View.VISIBLE);
                 btnPause.setVisibility(View.GONE);
-                btnDestroy.setVisibility(View.GONE);
-                btnSwap.setVisibility(View.GONE);
-                btnHint.setVisibility(View.GONE);
                 gridLayout.setEnabled(false);
                 running = false;
                 // 점수 저장
@@ -378,9 +345,6 @@ public class GameActivity extends AppCompatActivity {
                         .start();
                 btnReturn.setVisibility(View.VISIBLE);
                 btnPause.setVisibility(View.GONE);
-                btnDestroy.setVisibility(View.GONE);
-                btnSwap.setVisibility(View.GONE);
-                btnHint.setVisibility(View.GONE);
                 gridLayout.setEnabled(false);
                 running = false;
                 // 점수 저장
@@ -403,129 +367,6 @@ public class GameActivity extends AppCompatActivity {
             }
         });
     }
-
-    private void setupItemButton() {
-        btnDestroy.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(destroyCount > 0) {
-                    isDestroyedMode = true;
-                    Toast.makeText(GameActivity.this, "🧨블록 제거 아이템 사용: 제거할 블록을 선택하세요!", Toast.LENGTH_SHORT).show();
-                    //Snackbar.make(root, "한순간만!", Snackbar.LENGTH_SHORT).setDuration(500).show(); //Tag:Suggest 제안사항 Toast message가 너무 긴 것 같으므로 시간을 조절할 수 있는 snackbar 제안
-                } else {
-                    Toast.makeText(GameActivity.this, "❌블록 제거 아이템 없음.", Toast.LENGTH_SHORT).show();
-                    btnDestroy.setVisibility(View.INVISIBLE);
-                }
-
-            }
-        });
-
-        btnSwap.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(swapCount > 0) {
-                    isSwapMode = true;
-                    isFirstSwapSelected = false;
-                    Toast.makeText(GameActivity.this, "🔄블록 교환 아이템 사용: 첫 번째 블록을 선택하세요!", Toast.LENGTH_SHORT).show();
-                } else {
-                    Toast.makeText(GameActivity.this, "❌블록 교환 아이템 없음.", Toast.LENGTH_SHORT).show();
-                    btnSwap.setVisibility(View.INVISIBLE);
-                }
-            }
-        });
-    }
-
-    private void destroySelectedBlock(int row, int col) {
-        appleCells[row][col].setBackgroundResource(R.drawable.explosion_anim);
-        AnimationDrawable explosion = (AnimationDrawable) appleCells[row][col].getBackground();
-        explosion.start();
-
-        // 블록 제거 처리
-        appleCells[row][col].setText("");
-        destroyCount--;
-
-        //일정 시간 후 원래 배경으로 복원
-        new Handler().postDelayed(() -> {
-            appleCells[row][col].setBackgroundResource(R.drawable.pineapple_griddestroy);
-        }, 10000);
-        Toast.makeText(GameActivity.this, "💥블록 제거!" + destroyCount + "개 남음", Toast.LENGTH_SHORT).show();
-    }
-
-    private void handleSwapBlock(int row, int col) {
-        if(!isFirstSwapSelected) {
-            firstSwapRow = row;
-            firstSwapCol = col;
-            isFirstSwapSelected = true;
-
-            appleCells[row][col].setBackgroundResource(R.drawable.pineapple_gridselect);
-
-        } else {
-
-            appleCells[row][col].setBackgroundResource(R.drawable.pineapple_gridselect);
-
-            CharSequence temp = appleCells[row][col].getText();
-            appleCells[row][col].setText(appleCells[firstSwapRow][firstSwapCol].getText());
-            appleCells[firstSwapRow][firstSwapCol].setText(temp);
-
-            swapCount--;
-            Toast.makeText(GameActivity.this, "🔄블록 교환 완료!" + swapCount + "개 남음", Toast.LENGTH_SHORT).show();
-
-            new Handler().postDelayed(() -> {
-                appleCells[firstSwapRow][firstSwapCol].setBackgroundResource(R.drawable.pineapple_grid);
-                appleCells[row][col].setBackgroundResource(R.drawable.pineapple_grid);
-            }, 500);
-
-            isFirstSwapSelected = false;
-            isSwapMode = false;
-        }
-    }
-
-    private void updateHintButtonText() {
-        if (hintCount > 0) {
-            btnHint.setText("힌트 (" + hintCount + "/3)");
-        } else {
-            btnHint.setText("힌트 사용 불가");
-            btnHint.setEnabled(false);
-            btnHint.setBackgroundColor(Color.GRAY); // 선택사항: 비활성화 느낌
-        }
-    }
-
-    private void showHint() {
-        clearHighlight(); // 기존 하이라이트 제거
-
-        for (int r1 = 0; r1 < GRID_ROWS; r1++) {
-            for (int c1 = 0; c1 < GRID_COLS; c1++) {
-                for (int r2 = r1; r2 < GRID_ROWS; r2++) {
-                    for (int c2 = c1; c2 < GRID_COLS; c2++) {
-
-                        int sum = 0;
-                        for (int row = r1; row <= r2; row++) {
-                            for (int col = c1; col <= c2; col++) {
-                                String text = appleCells[row][col].getText().toString();
-                                if (!text.isEmpty()) {
-                                    sum += Integer.parseInt(text);
-                                }
-                            }
-                        }
-
-                        if (sum == 10) {
-                            // 금색 하이라이트로 표시
-                            for (int row = r1; row <= r2; row++) {
-                                for (int col = c1; col <= c2; col++) {
-                                    appleCells[row][col].setBackgroundColor(Color.parseColor("#FF0000"));
-                                }
-                            }
-                            Toast.makeText(this, "🔍 합이 10인 조합 발견!", Toast.LENGTH_SHORT).show();
-                            return;
-                        }
-                    }
-                }
-            }
-        }
-
-        Toast.makeText(this, "❌ 가능한 조합이 없습니다!", Toast.LENGTH_SHORT).show();
-    }
-
     private void uploadScoreWithLimit(String nickname, int newScore) {
         DatabaseReference dbRef = FirebaseDatabase.getInstance().getReference("rankings");
 

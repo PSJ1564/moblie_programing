@@ -84,12 +84,13 @@ public class RegisterActivity extends AppCompatActivity {
         public String id;
         public String password;
         public int score;
-
+        public User() {}
         public User(String nickname, String id, String password, int score) {
             this.nickname = nickname;
             this.id = id;
             this.password = password;
             this.score = score;
+
         }
     }
 }
