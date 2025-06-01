@@ -119,7 +119,14 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
+        SharedPreferences prefs = getSharedPreferences("MusicPrefs", MODE_PRIVATE);
+        boolean isFirstLaunch = prefs.getBoolean("isMusicPlaying", false);
+        if (!isFirstLaunch) {
+            startService(new Intent(this, BackgroundMusicService.class));
+            SharedPreferences.Editor editor = prefs.edit();
+            editor.putBoolean("isMusicPlaying", true);
+            editor.apply();
+        }
     }
 
     private void updateLoginButton() {
@@ -153,5 +160,9 @@ public class MainActivity extends AppCompatActivity {
         super.onDestroy();
         // 앱이 완전히 종료될 때만 음악도 중지
         stopService(new Intent(this, BackgroundMusicService.class));
+        SharedPreferences prefs = getSharedPreferences("MusicPrefs", MODE_PRIVATE);
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.putBoolean("isMusicPlaying", false);
+        editor.apply();
     }
 }

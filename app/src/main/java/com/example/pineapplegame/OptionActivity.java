@@ -31,17 +31,20 @@ public class OptionActivity extends AppCompatActivity {
         SeekBar volSeek = findViewById(R.id.seekVol);
 
         sharedPreferences = getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
-        isMusicPlaying = sharedPreferences.getBoolean(KEY_MUSIC_PLAYING, false);
+
+        isMusicPlaying = sharedPreferences.getBoolean(KEY_MUSIC_PLAYING, true);
         isSfxEnabled = sharedPreferences.getBoolean(KEY_SFX_ENABLED, true);
         float savedVolume = sharedPreferences.getFloat(KEY_MUSIC_VOLUME, 1.0f);
 
-        // 초기 버튼 텍스트 설정
+        musicIntent = new Intent(this, BackgroundMusicService.class);
+
+        if (isMusicPlaying) {
+            startService(musicIntent);
+        }
+
         btnMusic.setText(isMusicPlaying ? "Stop Music" : "Play Music");
         btnSfx.setText(isSfxEnabled ? "SFX OFF" : "SFX ON");
         volSeek.setProgress((int) (savedVolume * 100));
-
-        // 배경음 서비스 intent
-        musicIntent = new Intent(this, BackgroundMusicService.class);
 
         btnMusic.setOnClickListener(v -> {
             isMusicPlaying = !isMusicPlaying;
@@ -54,30 +57,22 @@ public class OptionActivity extends AppCompatActivity {
                 btnMusic.setText("Play Music");
             }
 
-            SharedPreferences.Editor editor = sharedPreferences.edit();
-            editor.putBoolean(KEY_MUSIC_PLAYING, isMusicPlaying);
-            editor.apply();
+            sharedPreferences.edit().putBoolean(KEY_MUSIC_PLAYING, isMusicPlaying).apply();
         });
 
         btnSfx.setOnClickListener(v -> {
             isSfxEnabled = !isSfxEnabled;
-            btnSfx.setText(isSfxEnabled ? "SFX ON" : "SFX OFF");
+            btnSfx.setText(isSfxEnabled ? "SFX OFF" : "SFX ON");
 
-            SharedPreferences.Editor editor = sharedPreferences.edit();
-            editor.putBoolean(KEY_SFX_ENABLED, isSfxEnabled);
-            editor.apply();
+            sharedPreferences.edit().putBoolean(KEY_SFX_ENABLED, isSfxEnabled).apply();
         });
 
         volSeek.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 float volume = progress / 100f;
+                sharedPreferences.edit().putFloat(KEY_MUSIC_VOLUME, volume).apply();
 
-                SharedPreferences.Editor editor = sharedPreferences.edit();
-                editor.putFloat(KEY_MUSIC_VOLUME, volume);
-                editor.apply();
-
-                // 실시간 반영 (옵션): BackgroundMusicService에 intent 전송 가능
                 Intent volumeIntent = new Intent(OptionActivity.this, BackgroundMusicService.class);
                 volumeIntent.setAction("SET_VOLUME");
                 volumeIntent.putExtra("volume", volume);
