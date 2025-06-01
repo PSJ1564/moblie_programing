@@ -1,70 +1,93 @@
 package com.example.pineapplegame;
 
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
+import android.widget.SeekBar;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 public class OptionActivity extends AppCompatActivity {
-    private boolean isMusicPlaying = false;  // 음악이 재생 중인지 확인
+
+    private boolean isMusicPlaying;
+    private boolean isSfxEnabled;
     private Intent musicIntent;
-    private SharedPreferences sharedPreferences;  // SharedPreferences 객체
+    private SharedPreferences sharedPreferences;
+
+    private static final String PREFS_NAME = "MusicPrefs";
+    private static final String KEY_MUSIC_PLAYING = "isMusicPlaying";
+    private static final String KEY_MUSIC_VOLUME = "musicVolume";
+    private static final String KEY_SFX_ENABLED = "isSoundEnabled";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_option);
 
-        Button musicButton = findViewById(R.id.btnMusic);  // 음악 제어 버튼
-        Button mainButton = findViewById(R.id.btnMain);  // 메인 화면으로 돌아가는 버튼
+        Button btnMusic = findViewById(R.id.btnMusic);
+        Button btnSfx = findViewById(R.id.btnSfx);
+        Button btnMain = findViewById(R.id.btnMain);
+        SeekBar volSeek = findViewById(R.id.seekVol);
 
-        // SharedPreferences를 이용해 이전 상태 복원
-        sharedPreferences = getSharedPreferences("MusicPrefs", MODE_PRIVATE);
-        isMusicPlaying = sharedPreferences.getBoolean("isMusicPlaying", false);
+        sharedPreferences = getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
+        isMusicPlaying = sharedPreferences.getBoolean(KEY_MUSIC_PLAYING, false);
+        isSfxEnabled = sharedPreferences.getBoolean(KEY_SFX_ENABLED, true);
+        float savedVolume = sharedPreferences.getFloat(KEY_MUSIC_VOLUME, 1.0f);
 
-        // 서비스 시작을 위한 Intent
+        // 초기 버튼 텍스트 설정
+        btnMusic.setText(isMusicPlaying ? "Stop Music" : "Play Music");
+        btnSfx.setText(isSfxEnabled ? "SFX OFF" : "SFX ON");
+        volSeek.setProgress((int) (savedVolume * 100));
+
+        // 배경음 서비스 intent
         musicIntent = new Intent(this, BackgroundMusicService.class);
 
-        // 음악 상태에 맞는 버튼 텍스트 설정
-        if (isMusicPlaying) {
-            musicButton.setText("Stop Music");  // 음악이 켜져 있으면 "Stop Music"
-        } else {
-            musicButton.setText("Play Music");  // 음악이 꺼져 있으면 "Play Music"
-        }
+        btnMusic.setOnClickListener(v -> {
+            isMusicPlaying = !isMusicPlaying;
 
-        // 음악 켜고 끄는 버튼 클릭 리스너
-        musicButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (!isMusicPlaying) {
-                    // 음악 켜기
-                    startService(musicIntent);
-                    musicButton.setText("Stop Music");  // 버튼 텍스트 변경
-                } else {
-                    // 음악 끄기
-                    stopService(musicIntent);
-                    musicButton.setText("Play Music");  // 버튼 텍스트 변경
-                }
-                isMusicPlaying = !isMusicPlaying;  // 상태 토글
-
-                // SharedPreferences에 상태 저장
-                SharedPreferences.Editor editor = sharedPreferences.edit();
-                editor.putBoolean("isMusicPlaying", isMusicPlaying);
-                editor.apply();  // 저장
+            if (isMusicPlaying) {
+                startService(musicIntent);
+                btnMusic.setText("Stop Music");
+            } else {
+                stopService(musicIntent);
+                btnMusic.setText("Play Music");
             }
+
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+            editor.putBoolean(KEY_MUSIC_PLAYING, isMusicPlaying);
+            editor.apply();
         });
 
-        // 메인 화면으로 돌아가는 버튼 클릭 리스너
-        mainButton.setOnClickListener(v -> {
-            finish();
-        });
-    }
+        btnSfx.setOnClickListener(v -> {
+            isSfxEnabled = !isSfxEnabled;
+            btnSfx.setText(isSfxEnabled ? "SFX ON" : "SFX OFF");
 
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+            editor.putBoolean(KEY_SFX_ENABLED, isSfxEnabled);
+            editor.apply();
+        });
+
+        volSeek.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                float volume = progress / 100f;
+
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.putFloat(KEY_MUSIC_VOLUME, volume);
+                editor.apply();
+
+                // 실시간 반영 (옵션): BackgroundMusicService에 intent 전송 가능
+                Intent volumeIntent = new Intent(OptionActivity.this, BackgroundMusicService.class);
+                volumeIntent.setAction("SET_VOLUME");
+                volumeIntent.putExtra("volume", volume);
+                startService(volumeIntent);
+            }
+
+            @Override public void onStartTrackingTouch(SeekBar seekBar) {}
+            @Override public void onStopTrackingTouch(SeekBar seekBar) {}
+        });
+
+        btnMain.setOnClickListener(v -> finish());
     }
 }

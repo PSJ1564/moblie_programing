@@ -1,80 +1,121 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:gravity="center"
-    android:fitsSystemWindows="true" >
+    android:fitsSystemWindows="true">
 
+    <!-- 🔄 움직이는 파인애플 배경 -->
     <com.example.pineapplegame.TiledBackgroundView
         android:id="@+id/movingPineapple"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#FFE76B"
-        />
+        android:background="#FFE76B" />
 
-    <Button
-        android:id="@+id/btnLogin"
-        style="@style/LobbyButtonStyle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="로그인"
-        android:layout_gravity="top|end"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="20dp"
-        />
-
-    <ImageView
-        android:id="@+id/logoImage"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:layout_gravity="center"
-        android:layout_marginBottom="110dp"
-        android:src="@drawable/pineapple_logo"
-        android:visibility="invisible"/>
+    <!-- 📐 비율 기반 콘텐츠 배치 -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:gravity="center_horizontal">
 
-    <Button
-        android:id="@+id/btnStartGame"
-        style="@style/LobbyButtonStyle"
-        android:layout_width="170dp"
-        android:layout_height="70dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="340dp"
-        android:textSize="35sp"
-        android:text="게임 시작"
-        />
-        <Button
-            android:id="@+id/btnRanking"
-            style="@style/LobbyButtonStyle"
-            android:layout_width="90dp"
-            android:layout_height="wrap_content"
-            android:text="랭킹"
-            android:layout_gravity="end"
-            android:layout_marginTop="50dp"
-            android:layout_marginEnd="20dp"/>
-        <Button
-            android:id="@+id/buttonScore"
-            style="@style/LobbyButtonStyle"
-            android:layout_width="90dp"
-            android:layout_height="wrap_content"
-            android:text="Score"
-            android:layout_gravity="end"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="20dp"
-            />
-        <ImageButton
-            android:id="@+id/buttonSetting"
-            style="@style/LobbyButtonStyle"
-            android:src="@drawable/option_img"
-            android:scaleType="fitCenter"
-            android:layout_width="90dp"
-            android:layout_height="90dp"
-            android:layout_gravity="end"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="20dp"
-            />
-</LinearLayout>
+        <!-- 상단 (로고 + 로그인 버튼) -->
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="2">
+
+            <ImageView
+                android:id="@+id/logoImage"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:layout_gravity="bottom|center"
+                android:src="@drawable/pineapple_logo"
+                android:visibility="invisible" />
+
+            <Button
+                android:id="@+id/btnLogin"
+                style="@style/LobbyButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top|end"
+                android:layout_margin="16dp"
+                android:text="로그인" />
+        </FrameLayout>
+
+        <!-- 중앙 버튼들 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="3"
+            android:orientation="vertical"
+            android:gravity="center_horizontal">
+
+            <Button
+                android:id="@+id/btnStartGame"
+                style="@style/LobbyButtonStyle"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:text="클래식 모드"
+                android:textSize="28sp"
+                android:layout_marginTop="8dp" />
+
+            <Button
+                android:id="@+id/btnStartItemMode"
+                style="@style/LobbyButtonStyle"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:text="아이템 모드"
+                android:textSize="28sp"
+                android:layout_marginTop="8dp" />
+
+            <Button
+                android:id="@+id/btnRanking"
+                style="@style/LobbyButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|right"
+                android:text="랭킹" />
+
+            <Button
+                android:id="@+id/buttonScore"
+                style="@style/LobbyButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|right"
+                android:layout_marginTop="10dp"
+                android:text="Score" />
+        </LinearLayout>
+
+        <!-- 하단 도움말 & 설정 버튼 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:padding="16dp"
+            android:gravity="center_vertical">
+
+            <Button
+                android:id="@+id/buttonHelp"
+                style="@style/LobbyButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="도움말" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                />
+
+            <ImageButton
+                android:id="@+id/buttonSetting"
+                style="@style/LobbyButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:scaleType="fitCenter"
+                android:src="@drawable/option_img" />
+        </LinearLayout>
+    </LinearLayout>
 </FrameLayout>

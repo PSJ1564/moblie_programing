@@ -27,9 +27,6 @@
             android:name=".GameActivity"
             android:exported="false" />
         <activity
-            android:name=".ItemModeActivity"
-            android:exported="false" />
-        <activity
             android:name=".OptionActivity"
             android:exported="false" />
         <activity

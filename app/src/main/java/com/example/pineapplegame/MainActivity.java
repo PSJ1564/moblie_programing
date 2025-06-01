@@ -48,7 +48,14 @@ public class MainActivity extends AppCompatActivity {
         btnItemMode.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, ItemModeActivity.class);
+                // 게임 모드를 SharedPreferences에 저장
+                SharedPreferences prefs = getSharedPreferences("game_prefs", MODE_PRIVATE);
+                SharedPreferences.Editor editor = prefs.edit();
+                editor.putBoolean("item_mode", true);
+                editor.apply();
+
+                // GameActivity 실행
+                Intent intent = new Intent(MainActivity.this, GameActivity.class);
                 startActivity(intent);
             }
         });
@@ -57,6 +64,13 @@ public class MainActivity extends AppCompatActivity {
         btnStart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                // 게임 모드를 SharedPreferences에 저장
+                SharedPreferences prefs = getSharedPreferences("game_prefs", MODE_PRIVATE);
+                SharedPreferences.Editor editor = prefs.edit();
+                editor.putBoolean("item_mode", false);
+                editor.apply();
+
+                // GameActivity 실행
                 Intent intent = new Intent(MainActivity.this, GameActivity.class);
                 startActivity(intent);
             }
