@@ -60,6 +60,7 @@ public class OptionActivity extends AppCompatActivity {
             sharedPreferences.edit().putBoolean(KEY_MUSIC_PLAYING, isMusicPlaying).apply();
         });
 
+
         btnSfx.setOnClickListener(v -> {
             isSfxEnabled = !isSfxEnabled;
             btnSfx.setText(isSfxEnabled ? "SFX OFF" : "SFX ON");

@@ -120,12 +120,9 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         SharedPreferences prefs = getSharedPreferences("MusicPrefs", MODE_PRIVATE);
-        boolean isFirstLaunch = prefs.getBoolean("isMusicPlaying", false);
-        if (!isFirstLaunch) {
+        boolean userWantsMusic = prefs.getBoolean("isMusicPlaying", true);
+        if (userWantsMusic) {
             startService(new Intent(this, BackgroundMusicService.class));
-            SharedPreferences.Editor editor = prefs.edit();
-            editor.putBoolean("isMusicPlaying", true);
-            editor.apply();
         }
     }
 
@@ -158,11 +155,19 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        // 앱이 완전히 종료될 때만 음악도 중지
         stopService(new Intent(this, BackgroundMusicService.class));
         SharedPreferences prefs = getSharedPreferences("MusicPrefs", MODE_PRIVATE);
-        SharedPreferences.Editor editor = prefs.edit();
-        editor.putBoolean("isMusicPlaying", false);
-        editor.apply();
+        prefs.edit().putBoolean("isMusicPlaying", false).apply();
+    }
+    @Override
+    public void onBackPressed() {
+        // 음악 중지
+        stopService(new Intent(this, BackgroundMusicService.class));
+
+        // 음악 설정도 false로 저장
+        SharedPreferences prefs = getSharedPreferences("MusicPrefs", MODE_PRIVATE);
+        prefs.edit().putBoolean("isMusicPlaying", false).apply();
+
+        super.onBackPressed(); // 정상적으로 Activity 종료
     }
 }
