@@ -77,7 +77,7 @@ public class GameActivity extends AppCompatActivity {
     private int soundExplosion, soundDragId;
     private long lastPlayedTime = 0;
     private int prevSelectedCount = -1;
-
+    private boolean isExplosionInProgress = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -176,6 +176,8 @@ public class GameActivity extends AppCompatActivity {
     }
 
     private void highlightSelection(int r1, int c1, int r2, int c2) {
+        if (isExplosionInProgress) return;
+
         clearHighlight();
 
         int top = Math.min(r1, r2);
@@ -195,16 +197,16 @@ public class GameActivity extends AppCompatActivity {
         }
 
         SharedPreferences prefs = getSharedPreferences("MusicPrefs", MODE_PRIVATE);
-        boolean isSoundEnabled = prefs.getBoolean("isSoundEnabled", true);
-
-        if (isSoundEnabled && selectedCount != prevSelectedCount) {
+        if (prefs.getBoolean("isSoundEnabled", true) && selectedCount != prevSelectedCount) {
             float pitch = Math.min(2.5f, 1.5f + 0.1f * (Math.abs(r2 - r1) + Math.abs(c2 - c1) + 1));
             soundPool.play(soundDragId, 1f, 1f, 0, 0, pitch);
             prevSelectedCount = selectedCount;
         }
     }
 
+
     private void clearHighlight() {
+        if (isExplosionInProgress) return;
         for (int row = 0; row < GRID_ROWS; row++) {
             for (int col = 0; col < GRID_COLS; col++) {
                 String text = appleCells[row][col].getText().toString();
@@ -216,6 +218,7 @@ public class GameActivity extends AppCompatActivity {
             }
         }
     }
+
 
     private void setTouchListener() {
         gridLayout.setOnTouchListener(new View.OnTouchListener() {
@@ -368,9 +371,9 @@ public class GameActivity extends AppCompatActivity {
                         .start();
                 btnReturn.setVisibility(View.VISIBLE);
                 btnPause.setVisibility(View.GONE);
-                btnDestroy.setVisibility(View.INVISIBLE);
-                btnSwap.setVisibility(View.INVISIBLE);
-                btnHint.setVisibility(View.INVISIBLE);
+                btnDestroy.setVisibility(View.GONE);
+                btnSwap.setVisibility(View.GONE);
+                btnHint.setVisibility(View.GONE);
                 gridLayout.setEnabled(false);
                 running = false;
                 // 점수 저장
@@ -416,8 +419,9 @@ public class GameActivity extends AppCompatActivity {
                         .start();
                 btnReturn.setVisibility(View.VISIBLE);
                 btnPause.setVisibility(View.GONE);
-                btnDestroy.setVisibility(View.INVISIBLE);
-                btnSwap.setVisibility(View.INVISIBLE);
+                btnDestroy.setVisibility(View.GONE);
+                btnSwap.setVisibility(View.GONE);
+                btnHint.setVisibility(View.GONE);
                 gridLayout.setEnabled(false);
                 running = false;
                 // 점수 저장
@@ -472,12 +476,13 @@ public class GameActivity extends AppCompatActivity {
     }
 
     private void destroySelectedBlock(int row, int col) {
-        appleCells[row][col].setTag("exploding");
-        appleCells[row][col].setBackgroundResource(R.drawable.explosion_frame); // 단일 이미지 사용 시
+        if (isExplosionInProgress) return; // 중복 방지
+
+        isExplosionInProgress = true;
+        appleCells[row][col].setBackgroundResource(R.drawable.explosion_frame);  // 애니메이션 대신 단일 이미지
         appleCells[row][col].setText("");
         destroyCount--;
 
-        // ✅ 효과음 설정 확인 후 재생
         SharedPreferences prefs = getSharedPreferences("MusicPrefs", MODE_PRIVATE);
         boolean isSoundEnabled = prefs.getBoolean("isSoundEnabled", true);
         if (isSoundEnabled) {
@@ -485,14 +490,13 @@ public class GameActivity extends AppCompatActivity {
         }
 
         new Handler().postDelayed(() -> {
-            if ("exploding".equals(appleCells[row][col].getTag())) {
-                appleCells[row][col].setBackgroundResource(R.drawable.pineapple_griddestroy);
-                appleCells[row][col].setTag(null);
-            }
-        }, 500);
+            appleCells[row][col].setBackgroundResource(R.drawable.pineapple_griddestroy);
+            isExplosionInProgress = false;
+        }, 500); // 애니메이션 종료 후 플래그 해제
 
         Toast.makeText(GameActivity.this, "💥블록 제거!" + destroyCount + "개 남음", Toast.LENGTH_SHORT).show();
     }
+
 
     private void handleSwapBlock(int row, int col) {
         if(!isFirstSwapSelected) {
