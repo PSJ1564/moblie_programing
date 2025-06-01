@@ -52,6 +52,7 @@ id gridLayout
 id itembtn
 id labelBgm
 id labelSfx
+id labelVol
 id login
 id logoImage
 id main
@@ -60,6 +61,7 @@ id rankingListView
 id register
 id root
 id scoreOverlay
+id seekVol
 id state
 id textFinalScore
 id textScore
@@ -79,6 +81,8 @@ mipmap ic_launcher_round
 mipmap ic_logo
 mipmap ic_logo_foreground
 mipmap ic_logo_round
+raw drag
+raw low_pop
 raw test
 string app_name
 string gcm_defaultSenderId

@@ -44,6 +44,15 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
         });
 
+        Button btnItemMode = findViewById(R.id.btnStartItemMode);
+        btnItemMode.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, ItemModeActivity.class);
+                startActivity(intent);
+            }
+        });
+
         Button btnStart = findViewById(R.id.btnStartGame);
         btnStart.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -53,6 +62,14 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        Button buttonHelp = findViewById(R.id.buttonHelp);
+        buttonHelp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, HelpActivity.class);
+                startActivity(intent);
+            }
+        });
         btnLogin = findViewById(R.id.btnLogin);
         sharedPreferences = getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
 

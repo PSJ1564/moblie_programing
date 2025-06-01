@@ -3447,6 +3447,7 @@ id jumpToEnd
 id jumpToStart
 id labelBgm
 id labelSfx
+id labelVol
 id labeled
 id layout
 id left
@@ -3612,6 +3613,7 @@ id search_mag_icon
 id search_plate
 id search_src_text
 id search_voice_btn
+id seekVol
 id select_dialog_listview
 id selected
 id selection_type
@@ -3944,7 +3946,9 @@ mipmap ic_logo
 mipmap ic_logo_foreground
 mipmap ic_logo_round
 plurals mtrl_badge_content_description
+raw drag
 raw firebase_common_keep
+raw low_pop
 raw test
 string abc_action_bar_home_description
 string abc_action_bar_up_description

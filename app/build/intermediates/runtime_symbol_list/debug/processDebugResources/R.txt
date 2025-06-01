@@ -3446,6 +3446,7 @@ int id jumpToEnd 0x7f090109
 int id jumpToStart 0x7f09010a
 int id labelBgm 0x7f09010b
 int id labelSfx 0x7f09010c
+int id labelVol 0x7f09022d
 int id labeled 0x7f09010d
 int id layout 0x7f09010e
 int id left 0x7f09010f
@@ -3611,6 +3612,7 @@ int id search_mag_icon 0x7f0901ae
 int id search_plate 0x7f0901af
 int id search_src_text 0x7f0901b0
 int id search_voice_btn 0x7f0901b1
+int id seekVol 0x7f09022e
 int id select_dialog_listview 0x7f0901b2
 int id selected 0x7f0901b3
 int id selection_type 0x7f0901b4
@@ -3943,7 +3945,9 @@ int mipmap ic_logo 0x7f0e0002
 int mipmap ic_logo_foreground 0x7f0e0003
 int mipmap ic_logo_round 0x7f0e0004
 int plurals mtrl_badge_content_description 0x7f0f0000
+int raw drag 0x7f100003
 int raw firebase_common_keep 0x7f100000
+int raw low_pop 0x7f100002
 int raw test 0x7f100001
 int string abc_action_bar_home_description 0x7f110000
 int string abc_action_bar_up_description 0x7f110001
