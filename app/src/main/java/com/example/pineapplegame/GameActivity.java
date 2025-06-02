@@ -304,6 +304,19 @@ public class GameActivity extends AppCompatActivity {
                 textScore.setText("Score: " + score);
                 if(comboScore > 1) {
                     Toast.makeText(this, "🔥콤보! x" + comboScore, Toast.LENGTH_SHORT).show();
+
+                    // ⏱ 2초 추가
+                    remainingTime += 2000;
+
+                    // ✅ 즉시 UI 동기화 (중요!)
+                    long seconds = remainingTime / 1000;
+                    textTimer.setText("Time: " + seconds);
+
+                    // 🔁 타이머 재시작
+                    if (countDownTimer != null) {
+                        countDownTimer.cancel();
+                    }
+                    resumeTimer();
                 }
             }
             else {
