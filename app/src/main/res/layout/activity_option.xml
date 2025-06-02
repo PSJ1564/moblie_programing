@@ -48,16 +48,36 @@
             android:text="Play Music"
             android:layout_alignBaseline="@id/labelBgm"
             android:layout_toEndOf="@id/labelBgm"
-            android:layout_marginStart="16dp" />
+            android:layout_marginStart="35dp" />
+
 
         <!-- 효과음 라벨 -->
+        <TextView
+            android:id="@+id/labelVol"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Volume"
+            android:textSize="18sp"
+            android:layout_below="@+id/labelBgm"
+            android:layout_marginTop="45dp"
+            android:layout_alignParentStart="true" />
+
+        <SeekBar
+            android:id="@+id/seekVol"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/btnMusic"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="40dp"
+            android:layout_toRightOf="@+id/labelSfx"
+         />
         <TextView
             android:id="@+id/labelSfx"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="SFX"
             android:textSize="18sp"
-            android:layout_below="@+id/labelBgm"
+            android:layout_below="@+id/labelVol"
             android:layout_marginTop="45dp"
             android:layout_alignParentStart="true" />
 
@@ -65,9 +85,9 @@
             android:id="@+id/btnSfx"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/btnMusic"
-            android:layout_marginStart="22dp"
-            android:layout_marginTop="22dp"
+            android:layout_below="@+id/seekVol"
+            android:layout_marginStart="45dp"
+            android:layout_marginTop="35dp"
             android:layout_toRightOf="@+id/labelSfx"
             android:text="Toggle SFX" />
 

@@ -48,7 +48,14 @@ public class MainActivity extends AppCompatActivity {
         btnItemMode.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, ItemModeActivity.class);
+                // 게임 모드를 SharedPreferences에 저장
+                SharedPreferences prefs = getSharedPreferences("game_prefs", MODE_PRIVATE);
+                SharedPreferences.Editor editor = prefs.edit();
+                editor.putBoolean("item_mode", true);
+                editor.apply();
+
+                // GameActivity 실행
+                Intent intent = new Intent(MainActivity.this, GameActivity.class);
                 startActivity(intent);
             }
         });
@@ -57,6 +64,13 @@ public class MainActivity extends AppCompatActivity {
         btnStart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                // 게임 모드를 SharedPreferences에 저장
+                SharedPreferences prefs = getSharedPreferences("game_prefs", MODE_PRIVATE);
+                SharedPreferences.Editor editor = prefs.edit();
+                editor.putBoolean("item_mode", false);
+                editor.apply();
+
+                // GameActivity 실행
                 Intent intent = new Intent(MainActivity.this, GameActivity.class);
                 startActivity(intent);
             }
@@ -105,7 +119,11 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
+        SharedPreferences prefs = getSharedPreferences("MusicPrefs", MODE_PRIVATE);
+        boolean userWantsMusic = prefs.getBoolean("isMusicPlaying", true);
+        if (userWantsMusic) {
+            startService(new Intent(this, BackgroundMusicService.class));
+        }
     }
 
     private void updateLoginButton() {
@@ -137,7 +155,19 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        // 앱이 완전히 종료될 때만 음악도 중지
         stopService(new Intent(this, BackgroundMusicService.class));
+        SharedPreferences prefs = getSharedPreferences("MusicPrefs", MODE_PRIVATE);
+        prefs.edit().putBoolean("isMusicPlaying", false).apply();
+    }
+    @Override
+    public void onBackPressed() {
+        // 음악 중지
+        stopService(new Intent(this, BackgroundMusicService.class));
+
+        // 음악 설정도 false로 저장
+        SharedPreferences prefs = getSharedPreferences("MusicPrefs", MODE_PRIVATE);
+        prefs.edit().putBoolean("isMusicPlaying", false).apply();
+
+        super.onBackPressed(); // 정상적으로 Activity 종료
     }
 }

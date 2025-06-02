@@ -8,12 +8,12 @@
         "source": "C:\\Users\\PSJ\\.gradle\\daemon\\8.10.2\\com.example.pineapplegame.app-main-45:\\mipmap-mdpi\\ic_logo_round.webp"
     },
     {
-        "merged": "C:\\Users\\PSJ\\.gradle\\daemon\\8.10.2\\com.example.pineapplegame.app-debug-43:\\layout_activity_score.xml.flat",
-        "source": "C:\\Users\\PSJ\\.gradle\\daemon\\8.10.2\\com.example.pineapplegame.app-main-45:\\layout\\activity_score.xml"
-    },
-    {
         "merged": "C:\\Users\\PSJ\\.gradle\\daemon\\8.10.2\\com.example.pineapplegame.app-debug-43:\\mipmap-anydpi-v26_ic_launcher.xml.flat",
         "source": "C:\\Users\\PSJ\\.gradle\\daemon\\8.10.2\\com.example.pineapplegame.app-main-45:\\mipmap-anydpi-v26\\ic_launcher.xml"
+    },
+    {
+        "merged": "C:\\Users\\PSJ\\.gradle\\daemon\\8.10.2\\com.example.pineapplegame.app-debug-43:\\layout_activity_score.xml.flat",
+        "source": "C:\\Users\\PSJ\\.gradle\\daemon\\8.10.2\\com.example.pineapplegame.app-main-45:\\layout\\activity_score.xml"
     },
     {
         "merged": "C:\\Users\\PSJ\\.gradle\\daemon\\8.10.2\\com.example.pineapplegame.app-debug-43:\\mipmap-mdpi_ic_logo_foreground.webp.flat",
@@ -48,8 +48,16 @@
         "source": "C:\\Users\\PSJ\\.gradle\\daemon\\8.10.2\\com.example.pineapplegame.app-main-45:\\mipmap-xxxhdpi\\ic_logo.webp"
     },
     {
+        "merged": "C:\\Users\\PSJ\\.gradle\\daemon\\8.10.2\\com.example.pineapplegame.app-debug-43:\\raw_drag.mp3.flat",
+        "source": "C:\\Users\\PSJ\\.gradle\\daemon\\8.10.2\\com.example.pineapplegame.app-main-45:\\raw\\drag.mp3"
+    },
+    {
         "merged": "C:\\Users\\PSJ\\.gradle\\daemon\\8.10.2\\com.example.pineapplegame.app-debug-43:\\mipmap-xxhdpi_ic_launcher_round.webp.flat",
         "source": "C:\\Users\\PSJ\\.gradle\\daemon\\8.10.2\\com.example.pineapplegame.app-main-45:\\mipmap-xxhdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "com.example.pineapplegame.app-debug-43:/layout_activity_game.xml.flat",
+        "source": "com.example.pineapplegame.app-main-45:/layout/activity_game.xml"
     },
     {
         "merged": "C:\\Users\\PSJ\\.gradle\\daemon\\8.10.2\\com.example.pineapplegame.app-debug-43:\\mipmap-xxhdpi_ic_launcher.webp.flat",
@@ -70,6 +78,10 @@
     {
         "merged": "C:\\Users\\PSJ\\.gradle\\daemon\\8.10.2\\com.example.pineapplegame.app-debug-43:\\mipmap-hdpi_ic_logo_round.webp.flat",
         "source": "C:\\Users\\PSJ\\.gradle\\daemon\\8.10.2\\com.example.pineapplegame.app-main-45:\\mipmap-hdpi\\ic_logo_round.webp"
+    },
+    {
+        "merged": "C:\\Users\\PSJ\\.gradle\\daemon\\8.10.2\\com.example.pineapplegame.app-debug-43:\\drawable_btn_close_img.xml.flat",
+        "source": "C:\\Users\\PSJ\\.gradle\\daemon\\8.10.2\\com.example.pineapplegame.app-main-45:\\drawable\\btn_close_img.xml"
     },
     {
         "merged": "C:\\Users\\PSJ\\.gradle\\daemon\\8.10.2\\com.example.pineapplegame.app-debug-43:\\mipmap-xxxhdpi_ic_logo_foreground.webp.flat",
@@ -148,10 +160,6 @@
         "source": "C:\\Users\\PSJ\\.gradle\\daemon\\8.10.2\\com.example.pineapplegame.app-main-45:\\mipmap-hdpi\\ic_logo.webp"
     },
     {
-        "merged": "com.example.pineapplegame.app-debug-43:/raw_drag.mp3.flat",
-        "source": "com.example.pineapplegame.app-main-45:/raw/drag.mp3"
-    },
-    {
         "merged": "C:\\Users\\PSJ\\.gradle\\daemon\\8.10.2\\com.example.pineapplegame.app-debug-43:\\layout_activity_game.xml.flat",
         "source": "C:\\Users\\PSJ\\.gradle\\daemon\\8.10.2\\com.example.pineapplegame.app-main-45:\\layout\\activity_game.xml"
     },
@@ -178,6 +186,14 @@
     {
         "merged": "C:\\Users\\PSJ\\.gradle\\daemon\\8.10.2\\com.example.pineapplegame.app-debug-43:\\drawable_button_round.png.flat",
         "source": "C:\\Users\\PSJ\\.gradle\\daemon\\8.10.2\\com.example.pineapplegame.app-main-45:\\drawable\\button_round.png"
+    },
+    {
+        "merged": "C:\\Users\\PSJ\\.gradle\\daemon\\8.10.2\\com.example.pineapplegame.app-debug-43:\\layout_activity_help.xml.flat",
+        "source": "C:\\Users\\PSJ\\.gradle\\daemon\\8.10.2\\com.example.pineapplegame.app-main-45:\\layout\\activity_help.xml"
+    },
+    {
+        "merged": "C:\\Users\\PSJ\\.gradle\\daemon\\8.10.2\\com.example.pineapplegame.app-debug-43:\\layout_activity_item_mode.xml.flat",
+        "source": "C:\\Users\\PSJ\\.gradle\\daemon\\8.10.2\\com.example.pineapplegame.app-main-45:\\layout\\activity_item_mode.xml"
     },
     {
         "merged": "C:\\Users\\PSJ\\.gradle\\daemon\\8.10.2\\com.example.pineapplegame.app-debug-43:\\layout_activity_ranking.xml.flat",

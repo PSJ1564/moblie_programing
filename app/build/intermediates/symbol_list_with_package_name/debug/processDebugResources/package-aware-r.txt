@@ -3032,16 +3032,11 @@ drawable btn_checkbox_checked_mtrl
 drawable btn_checkbox_checked_to_unchecked_mtrl_animation
 drawable btn_checkbox_unchecked_mtrl
 drawable btn_checkbox_unchecked_to_checked_mtrl_animation
+drawable btn_close_img
 drawable btn_radio_off_mtrl
 drawable btn_radio_off_to_on_mtrl_animation
 drawable btn_radio_on_mtrl
 drawable btn_radio_on_to_off_mtrl_animation
-drawable button_background_selector_rec
-drawable button_background_selector_rnd
-drawable button_rectangle
-drawable button_rectangle_flat
-drawable button_round
-drawable button_round_flat
 drawable common_full_open_on_phone
 drawable common_google_signin_btn_icon_dark
 drawable common_google_signin_btn_icon_dark_focused
@@ -3299,7 +3294,9 @@ id btnRegister
 id btnReturn
 id btnSfx
 id btnStartGame
+id btnStartItemMode
 id btnSwap
+id buttonHelp
 id buttonPanel
 id buttonScore
 id buttonSetting
@@ -3323,6 +3320,7 @@ id clear_text
 id clip_horizontal
 id clip_vertical
 id clockwise
+id closeButton
 id closest
 id collapseActionView
 id compress
@@ -3420,6 +3418,7 @@ id group_divider
 id grouping
 id groups
 id header_title
+id helpTitle
 id hide_ime_id
 id hideable
 id home
@@ -3853,6 +3852,7 @@ layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
 layout activity_game
+layout activity_help
 layout activity_login
 layout activity_main
 layout activity_option
