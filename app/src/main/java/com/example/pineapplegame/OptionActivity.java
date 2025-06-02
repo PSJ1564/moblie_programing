@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.SeekBar;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -27,7 +28,7 @@ public class OptionActivity extends AppCompatActivity {
 
         Button btnMusic = findViewById(R.id.btnMusic);
         Button btnSfx = findViewById(R.id.btnSfx);
-        Button btnMain = findViewById(R.id.btnMain);
+        ImageButton closeButton = findViewById(R.id.closeButton);
         SeekBar volSeek = findViewById(R.id.seekVol);
 
         sharedPreferences = getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
@@ -84,6 +85,6 @@ public class OptionActivity extends AppCompatActivity {
             @Override public void onStopTrackingTouch(SeekBar seekBar) {}
         });
 
-        btnMain.setOnClickListener(v -> finish());
+        closeButton.setOnClickListener(v -> finish());
     }
 }

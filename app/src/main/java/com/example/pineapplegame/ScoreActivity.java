@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -11,33 +13,42 @@ import androidx.appcompat.app.AppCompatActivity;
 public class ScoreActivity extends AppCompatActivity {
 
     private TextView tvScoresList;  // tvTopScores를 제거하고 tvScoresList만 사용
-    private Button btnBackToMain;
+    private ImageButton closeButton;
     private ScoreDatabaseHelper dbHelper;
+    private String currentMode = "classic";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_score);
 
-        // UI 요소 초기화
         tvScoresList = findViewById(R.id.tvScoresList);
-        btnBackToMain = findViewById(R.id.btnBackToMain);
+        closeButton = findViewById(R.id.closeButton);
 
         // 데이터베이스 헬퍼 객체 생성
         dbHelper = new ScoreDatabaseHelper(this);
         //dbHelper.clearAllScores(); 점수 초기화 할떄 사용
-        // 상위 10점수 불러오기
+        RadioGroup modeRadioGroup = findViewById(R.id.modeRadioGroup);
+        modeRadioGroup.setOnCheckedChangeListener((group, checkedId) -> {
+            if (checkedId == R.id.radioClassic) {
+                currentMode = "classic";
+            } else {
+                currentMode = "item";
+            }
+            loadTopScores();
+        });
+
         loadTopScores();
 
-        // 돌아가기 버튼 클릭 시 MainActivity로 이동
-        btnBackToMain.setOnClickListener(v -> {
+        // 닫기 버튼 클릭 시 MainActivity로 이동
+        closeButton.setOnClickListener(v -> {
             finish();
         });
     }
 
     private void loadTopScores() {
         // 점수 목록을 데이터베이스에서 조회
-        Cursor cursor = dbHelper.getTopScores();
+        Cursor cursor = dbHelper.getTopScores(currentMode);
         if (cursor != null && cursor.moveToFirst()) {
             StringBuilder scoresList = new StringBuilder();
             int rank = 1;
@@ -60,6 +71,7 @@ public class ScoreActivity extends AppCompatActivity {
             }
 
             cursor.close();
+
         } else {
             // 점수가 없을 경우
             tvScoresList.setText("No scores available.");

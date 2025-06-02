@@ -3281,11 +3281,9 @@ int id browser_actions_menu_item_text 0x7f090069
 int id browser_actions_menu_items 0x7f09006a
 int id browser_actions_menu_view 0x7f09006b
 int id btnBack 0x7f09006c
-int id btnBackToMain 0x7f09006d
 int id btnDestroy 0x7f09006e
 int id btnHint 0x7f09006f
 int id btnLogin 0x7f090070
-int id btnMain 0x7f090071
 int id btnMusic 0x7f090072
 int id btnPause 0x7f090073
 int id btnRanking 0x7f090074
@@ -3489,6 +3487,7 @@ int id matrix 0x7f090139
 int id message 0x7f09013a
 int id middle 0x7f09013b
 int id mini 0x7f09013c
+int id modeRadioGroup 0x7f090235
 int id month_grid 0x7f09013d
 int id month_navigation_bar 0x7f09013e
 int id month_navigation_fragment_toggle 0x7f09013f
@@ -3577,6 +3576,8 @@ int id pressed 0x7f090191
 int id progress_circular 0x7f090192
 int id progress_horizontal 0x7f090193
 int id radio 0x7f090194
+int id radioClassic 0x7f090236
+int id radioItem 0x7f090237
 int id rankingListView 0x7f090195
 int id ratio 0x7f090196
 int id rectangles 0x7f090197
@@ -3690,7 +3691,6 @@ int id textinput_suffix_text 0x7f090202
 int id time 0x7f090203
 int id title 0x7f090204
 int id titleDividerNoCustom 0x7f090205
-int id titleSetting 0x7f090206
 int id title_template 0x7f090207
 int id toggle 0x7f090208
 int id top 0x7f090209
@@ -3708,7 +3708,6 @@ int id transition_scene_layoutid_cache 0x7f090214
 int id transition_transform 0x7f090215
 int id triangle 0x7f090216
 int id tvScoresList 0x7f090217
-int id tvTopScores 0x7f090218
 int id unchecked 0x7f090219
 int id uniform 0x7f09021a
 int id unlabeled 0x7f09021b

@@ -79,6 +79,8 @@ public class GameActivity extends AppCompatActivity {
     private int prevSelectedCount = -1;
     private boolean isExplosionInProgress = false;
 
+    private boolean isItemMode = false;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -127,7 +129,7 @@ public class GameActivity extends AppCompatActivity {
         setTouchListener();
         startTimer();
         SharedPreferences prefs = getSharedPreferences("game_prefs", MODE_PRIVATE);
-        boolean isItemMode = prefs.getBoolean("item_mode", false);
+        isItemMode = prefs.getBoolean("item_mode", false);
         AudioAttributes audioAttributes = new AudioAttributes.Builder()
                 .setUsage(AudioAttributes.USAGE_GAME)
                 .setContentType(AudioAttributes.CONTENT_TYPE_SONIFICATION)
@@ -305,14 +307,14 @@ public class GameActivity extends AppCompatActivity {
                 if(comboScore > 1) {
                     Toast.makeText(this, "🔥콤보! x" + comboScore, Toast.LENGTH_SHORT).show();
 
-                    // ⏱ 2초 추가
+                    // 2초 추가
                     remainingTime += 2000;
 
-                    // ✅ 즉시 UI 동기화 (중요!)
+                    // 즉시 UI 동기화
                     long seconds = remainingTime / 1000;
                     textTimer.setText("Time: " + seconds);
 
-                    // 🔁 타이머 재시작
+                    // 타이머 재시작
                     if (countDownTimer != null) {
                         countDownTimer.cancel();
                     }
@@ -391,11 +393,19 @@ public class GameActivity extends AppCompatActivity {
                 running = false;
                 // 점수 저장
                 ScoreDatabaseHelper dbHelper = new ScoreDatabaseHelper(GameActivity.this);
-                dbHelper.addScore(score);
+                if(!isItemMode) {
+                    dbHelper.addScore(score, "classic");
+                } else {
+                    dbHelper.addScore(score, "item");
+                }
                 SharedPreferences prefs = getSharedPreferences("UserPrefs", MODE_PRIVATE);
                 String nickname = prefs.getString("nickname", "Noname"); // 기본값은 "Noname"
                 Log.d("ScoreUpload", "Uploading score. Nickname: " + nickname + ", Score: " + score);
-                uploadScoreWithLimit(nickname, score);
+                if(!isItemMode) {
+                    uploadScoreWithLimit(nickname, score, "classic");
+                } else {
+                    uploadScoreWithLimit(nickname, score, "item");
+                }
             }
         };
         countDownTimer.start();
@@ -439,10 +449,18 @@ public class GameActivity extends AppCompatActivity {
                 running = false;
                 // 점수 저장
                 ScoreDatabaseHelper dbHelper = new ScoreDatabaseHelper(GameActivity.this);
-                dbHelper.addScore(score);
+                if(!isItemMode) {
+                    dbHelper.addScore(score, "classic");
+                } else {
+                    dbHelper.addScore(score, "item");
+                }
                 SharedPreferences prefs = getSharedPreferences("UserPrefs", MODE_PRIVATE);
                 String nickname = prefs.getString("nickname", "Noname"); // 기본값은 "Noname"
-                uploadScoreWithLimit(nickname, score);
+                if(!isItemMode) {
+                    uploadScoreWithLimit(nickname, score, "classic");
+                } else {
+                    uploadScoreWithLimit(nickname, score, "item");
+                }
             }
         };
         countDownTimer.start();
@@ -462,13 +480,14 @@ public class GameActivity extends AppCompatActivity {
         btnDestroy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(destroyCount > 0) {
+                destroyCount--;
+                if(destroyCount >= 0) {
+                    btnDestroy.setText("🧨폭탄 (" + destroyCount + "/3)");
                     isDestroyedMode = true;
-                    Toast.makeText(GameActivity.this, "🧨블록 제거 아이템 사용: 제거할 블록을 선택하세요!", Toast.LENGTH_SHORT).show();
-                    //Snackbar.make(root, "한순간만!", Snackbar.LENGTH_SHORT).setDuration(500).show(); //Tag:Suggest 제안사항 Toast message가 너무 긴 것 같으므로 시간을 조절할 수 있는 snackbar 제안
+                    Snackbar.make(root, "🧨폭탄 아이템 사용!", Snackbar.LENGTH_SHORT).setDuration(500).show();
                 } else {
-                    Toast.makeText(GameActivity.this, "❌블록 제거 아이템 없음.", Toast.LENGTH_SHORT).show();
-                    btnDestroy.setVisibility(View.INVISIBLE);
+                    Snackbar.make(root, "❌폭탄 아이템 없음.", Snackbar.LENGTH_SHORT).setDuration(500).show();
+                    btnDestroy.setText("🧨폭탄 (0/3)");
                 }
             }
         });
@@ -476,13 +495,15 @@ public class GameActivity extends AppCompatActivity {
         btnSwap.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(swapCount > 0) {
+                swapCount--;
+                if(swapCount >= 0) {
+                    btnSwap.setText("🔄교환 (" + swapCount + "/3)");
                     isSwapMode = true;
                     isFirstSwapSelected = false;
-                    Toast.makeText(GameActivity.this, "🔄블록 교환 아이템 사용: 첫 번째 블록을 선택하세요!", Toast.LENGTH_SHORT).show();
+                    Snackbar.make(root, "🔄교환 아이템 사용!", Snackbar.LENGTH_SHORT).setDuration(500).show();
                 } else {
-                    Toast.makeText(GameActivity.this, "❌블록 교환 아이템 없음.", Toast.LENGTH_SHORT).show();
-                    btnSwap.setVisibility(View.INVISIBLE);
+                    Snackbar.make(root, "❌교환 아이템 없음.", Snackbar.LENGTH_SHORT).setDuration(500).show();
+                    btnSwap.setText("🔄교환 (0/3)");
                 }
             }
         });
@@ -492,9 +513,8 @@ public class GameActivity extends AppCompatActivity {
         if (isExplosionInProgress) return; // 중복 방지
 
         isExplosionInProgress = true;
-        appleCells[row][col].setBackgroundResource(R.drawable.explosion_frame);  // 애니메이션 대신 단일 이미지
+        appleCells[row][col].setBackgroundResource(R.drawable.explosion_frame);
         appleCells[row][col].setText("");
-        destroyCount--;
 
         SharedPreferences prefs = getSharedPreferences("MusicPrefs", MODE_PRIVATE);
         boolean isSoundEnabled = prefs.getBoolean("isSoundEnabled", true);
@@ -506,8 +526,6 @@ public class GameActivity extends AppCompatActivity {
             appleCells[row][col].setBackgroundResource(R.drawable.pineapple_griddestroy);
             isExplosionInProgress = false;
         }, 500); // 애니메이션 종료 후 플래그 해제
-
-        Toast.makeText(GameActivity.this, "💥블록 제거!" + destroyCount + "개 남음", Toast.LENGTH_SHORT).show();
     }
 
 
@@ -527,9 +545,6 @@ public class GameActivity extends AppCompatActivity {
             appleCells[row][col].setText(appleCells[firstSwapRow][firstSwapCol].getText());
             appleCells[firstSwapRow][firstSwapCol].setText(temp);
 
-            swapCount--;
-            Toast.makeText(GameActivity.this, "🔄블록 교환 완료!" + swapCount + "개 남음", Toast.LENGTH_SHORT).show();
-
             new Handler().postDelayed(() -> {
                 appleCells[firstSwapRow][firstSwapCol].setBackgroundResource(R.drawable.pineapple_grid);
                 appleCells[row][col].setBackgroundResource(R.drawable.pineapple_grid);
@@ -539,14 +554,12 @@ public class GameActivity extends AppCompatActivity {
             isSwapMode = false;
         }
     }
-
     private void updateHintButtonText() {
         if (hintCount > 0) {
             btnHint.setText("힌트 (" + hintCount + "/3)");
         } else {
-            btnHint.setText("힌트 사용 불가");
+            btnHint.setText("힌트 (0/3)");
             btnHint.setEnabled(false);
-            btnHint.setBackgroundColor(Color.GRAY); // 선택사항: 비활성화 느낌
         }
     }
 
@@ -586,8 +599,8 @@ public class GameActivity extends AppCompatActivity {
         Toast.makeText(this, "❌ 가능한 조합이 없습니다!", Toast.LENGTH_SHORT).show();
     }
 
-    private void uploadScoreWithLimit(String nickname, int newScore) {
-        DatabaseReference dbRef = FirebaseDatabase.getInstance().getReference("rankings");
+    private void uploadScoreWithLimit(String nickname, int newScore, String mode) {
+        DatabaseReference dbRef = FirebaseDatabase.getInstance().getReference("rankings/" + mode);
 
         dbRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override

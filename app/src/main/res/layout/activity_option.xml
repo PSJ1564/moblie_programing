@@ -7,98 +7,109 @@
         android:id="@+id/movingPineapple"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#D8FF6B"
+        android:background="#FFFACD"
         android:alpha="0.3"
         />
-    <RelativeLayout
+
+    <LinearLayout
+        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="24dp"
-        android:gravity="center_horizontal"
-        android:alpha="1.0"
-        >
-
-        <!-- 상단 타이틀 -->
-        <TextView
-            android:id="@+id/titleSetting"
+        android:orientation="vertical"
+        android:padding="24dp">
+        <!-- 상단 타이틀과 닫기 버튼 -->
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="SETTING"
-            android:textSize="50sp"
-            android:gravity="center"
-            android:layout_marginTop="32dp"
-            android:textStyle="bold" />
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/helpTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="도움말"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:layout_centerHorizontal="true"/>
+            <ImageButton
+                android:id="@+id/closeButton"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_alignParentEnd="true"
+                android:src="@drawable/btn_close_img"/>
+        </RelativeLayout>
 
-        <!-- 배경음 라벨 -->
-        <TextView
-            android:id="@+id/labelBgm"
+        <!-- 구분선 -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#E0E0E0"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="16dp"/>
+
+        <RelativeLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="BGM"
-            android:textSize="18sp"
-            android:layout_below="@id/titleSetting"
-            android:layout_marginTop="48dp"
-            android:layout_alignParentStart="true" />
+            android:layout_height="match_parent">
+            <!-- 배경음 라벨 -->
+            <TextView
+                android:id="@+id/labelBgm"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="BGM"
+                android:textSize="18sp"
+                android:layout_marginTop="48dp"
+                android:layout_alignParentStart="true" />
 
-        <!-- 배경음 버튼 -->
-        <Button
-            android:id="@+id/btnMusic"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Play Music"
-            android:layout_alignBaseline="@id/labelBgm"
-            android:layout_toEndOf="@id/labelBgm"
-            android:layout_marginStart="35dp" />
+            <!-- 배경음 버튼 -->
+            <Button
+                android:id="@+id/btnMusic"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Play Music"
+                android:layout_alignBaseline="@id/labelBgm"
+                android:layout_toEndOf="@id/labelBgm"
+                android:layout_marginStart="35dp" />
 
 
-        <!-- 효과음 라벨 -->
-        <TextView
-            android:id="@+id/labelVol"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Volume"
-            android:textSize="18sp"
-            android:layout_below="@+id/labelBgm"
-            android:layout_marginTop="45dp"
-            android:layout_alignParentStart="true" />
+            <!-- 효과음 라벨 -->
+            <TextView
+                android:id="@+id/labelVol"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Volume"
+                android:textSize="18sp"
+                android:layout_below="@+id/labelBgm"
+                android:layout_marginTop="45dp"
+                android:layout_alignParentStart="true" />
 
-        <SeekBar
-            android:id="@+id/seekVol"
-            android:layout_width="250dp"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/btnMusic"
-            android:layout_marginStart="40dp"
-            android:layout_marginTop="40dp"
-            android:layout_toRightOf="@+id/labelSfx"
-         />
-        <TextView
-            android:id="@+id/labelSfx"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="SFX"
-            android:textSize="18sp"
-            android:layout_below="@+id/labelVol"
-            android:layout_marginTop="45dp"
-            android:layout_alignParentStart="true" />
+            <SeekBar
+                android:id="@+id/seekVol"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/btnMusic"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="40dp"
+                android:layout_toRightOf="@+id/labelSfx"
+             />
+            <TextView
+                android:id="@+id/labelSfx"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="SFX"
+                android:textSize="18sp"
+                android:layout_below="@+id/labelVol"
+                android:layout_marginTop="45dp"
+                android:layout_alignParentStart="true" />
 
-        <Button
-            android:id="@+id/btnSfx"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/seekVol"
-            android:layout_marginStart="45dp"
-            android:layout_marginTop="35dp"
-            android:layout_toRightOf="@+id/labelSfx"
-            android:text="Toggle SFX" />
+            <Button
+                android:id="@+id/btnSfx"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/seekVol"
+                android:layout_marginStart="45dp"
+                android:layout_marginTop="35dp"
+                android:layout_toRightOf="@+id/labelSfx"
+                android:text="Toggle SFX" />
 
-        <Button
-            android:id="@+id/btnMain"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="돌아가기"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginBottom="24dp" />
-    </RelativeLayout>
+        </RelativeLayout>
+    </LinearLayout>
 
 </FrameLayout>

@@ -4,7 +4,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true">
-
     <com.example.pineapplegame.TiledBackgroundView
         android:id="@+id/movingPineapple"
         android:layout_width="match_parent"
@@ -12,35 +11,71 @@
         android:background="#CCF4E1"
         android:alpha="0.3"
         />
+
     <LinearLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        android:orientation="vertical"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="16dp">
+        android:orientation="vertical"
+        android:padding="24dp">
 
-        <TextView
+        <!-- 상단 타이틀과 닫기 버튼 -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/helpTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🏆 랭킹"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:layout_centerHorizontal="true"/>
+            <ImageButton
+                android:id="@+id/closeButton"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_alignParentEnd="true"
+                android:src="@drawable/btn_close_img"/>
+        </RelativeLayout>
+
+        <!-- 모드 선택 라디오 그룹 -->
+        <RadioGroup
+            android:id="@+id/modeRadioGroup"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="🏆 랭킹"
-            android:textStyle="bold"
-            android:textSize="50sp"
+            android:orientation="horizontal"
             android:layout_gravity="center"
-            android:layout_marginBottom="20dp"/>
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp">
+
+            <RadioButton
+                android:id="@+id/radioClassic"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="클래식 모드"
+                android:checked="true"/>
+            <RadioButton
+                android:id="@+id/radioItem"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="아이템 모드"/>
+        </RadioGroup>
+
+        <!-- 구분선 -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#E0E0E0"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="16dp"/>
 
         <ListView
             android:id="@+id/rankingListView"
-            android:layout_marginTop="40dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-
-        <Button
-            android:id="@+id/btnBackToMain"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom|center"
-            android:layout_marginTop="1dp"
-            android:text="돌아가기" />
+            android:layout_height="wrap_content" />
 
     </LinearLayout>
+
+
 </FrameLayout>

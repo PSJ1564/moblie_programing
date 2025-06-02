@@ -23,11 +23,9 @@ drawable pineapple_gridselect
 drawable pineapple_logo
 font cookierun
 id btnBack
-id btnBackToMain
 id btnDestroy
 id btnHint
 id btnLogin
-id btnMain
 id btnMusic
 id btnPause
 id btnRanking
@@ -55,7 +53,10 @@ id labelVol
 id login
 id logoImage
 id main
+id modeRadioGroup
 id movingPineapple
+id radioClassic
+id radioItem
 id rankingListView
 id register
 id root
@@ -65,9 +66,7 @@ id state
 id textFinalScore
 id textScore
 id textTimer
-id titleSetting
 id tvScoresList
-id tvTopScores
 layout activity_game
 layout activity_help
 layout activity_login

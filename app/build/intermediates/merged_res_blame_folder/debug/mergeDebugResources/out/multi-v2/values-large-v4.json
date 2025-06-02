@@ -4,7 +4,7 @@
             "outputFile": "com.example.pineapplegame.app-mergeDebugResources-41:/values-large-v4/values-large-v4.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\user\\.gradle\\caches\\8.10.2\\transforms\\1624a7bbfa3d049bff77abaca0e44159\\transformed\\material-1.12.0\\res\\values-large-v4\\values-large-v4.xml",
+                    "source": "/Users/minki/AndroidStudioProjects/mobile_programing/gradle/caches/8.10.2/transforms/1624a7bbfa3d049bff77abaca0e44159/transformed/material-1.12.0/res/values-large-v4/values-large-v4.xml",
                     "from": {
                         "startLines": "2,3,4,5",
                         "startColumns": "4,4,4,4",
@@ -21,7 +21,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\user\\.gradle\\caches\\8.10.2\\transforms\\7032781fa78f1d9a5abbb67ca99ceb93\\transformed\\appcompat-1.7.0\\res\\values-large-v4\\values-large-v4.xml",
+                    "source": "/Users/minki/AndroidStudioProjects/mobile_programing/gradle/caches/8.10.2/transforms/7032781fa78f1d9a5abbb67ca99ceb93/transformed/appcompat-1.7.0/res/values-large-v4/values-large-v4.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10",
                         "startColumns": "4,4,4,4,4,4,4,4,4",

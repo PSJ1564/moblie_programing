@@ -1,230 +1,234 @@
 [
     {
-        "merged": "com.example.pineapplegame.app-debug-43:/layout_activity_login.xml.flat",
-        "source": "com.example.pineapplegame.app-main-45:/layout/activity_login.xml"
+        "merged": "/Users/minki/AndroidStudioProjects/mobile_programing/gradle/daemon/8.10.2/com.example.pineapplegame.app-debug-43:/mipmap-xxxhdpi_ic_launcher.webp.flat",
+        "source": "/Users/minki/AndroidStudioProjects/mobile_programing/gradle/daemon/8.10.2/com.example.pineapplegame.app-main-45:/mipmap-xxxhdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "/Users/minki/AndroidStudioProjects/mobile_programing/gradle/daemon/8.10.2/com.example.pineapplegame.app-debug-43:/xml_backup_rules.xml.flat",
+        "source": "/Users/minki/AndroidStudioProjects/mobile_programing/gradle/daemon/8.10.2/com.example.pineapplegame.app-main-45:/xml/backup_rules.xml"
     },
     {
         "merged": "com.example.pineapplegame.app-debug-43:/layout_activity_score.xml.flat",
         "source": "com.example.pineapplegame.app-main-45:/layout/activity_score.xml"
     },
     {
-        "merged": "com.example.pineapplegame.app-debug-43:/drawable_pineapple_grid.png.flat",
-        "source": "com.example.pineapplegame.app-main-45:/drawable/pineapple_grid.png"
+        "merged": "/Users/minki/AndroidStudioProjects/mobile_programing/gradle/daemon/8.10.2/com.example.pineapplegame.app-debug-43:/drawable_ic_logo_background.xml.flat",
+        "source": "/Users/minki/AndroidStudioProjects/mobile_programing/gradle/daemon/8.10.2/com.example.pineapplegame.app-main-45:/drawable/ic_logo_background.xml"
     },
     {
-        "merged": "com.example.pineapplegame.app-debug-43:/mipmap-mdpi_ic_logo_foreground.webp.flat",
-        "source": "com.example.pineapplegame.app-main-45:/mipmap-mdpi/ic_logo_foreground.webp"
+        "merged": "/Users/minki/AndroidStudioProjects/mobile_programing/gradle/daemon/8.10.2/com.example.pineapplegame.app-debug-43:/drawable_explosion_anim.xml.flat",
+        "source": "/Users/minki/AndroidStudioProjects/mobile_programing/gradle/daemon/8.10.2/com.example.pineapplegame.app-main-45:/drawable/explosion_anim.xml"
     },
     {
-        "merged": "com.example.pineapplegame.app-debug-43:/drawable_ic_logo_background.xml.flat",
-        "source": "com.example.pineapplegame.app-main-45:/drawable/ic_logo_background.xml"
+        "merged": "/Users/minki/AndroidStudioProjects/mobile_programing/gradle/daemon/8.10.2/com.example.pineapplegame.app-debug-43:/mipmap-xhdpi_ic_launcher_round.webp.flat",
+        "source": "/Users/minki/AndroidStudioProjects/mobile_programing/gradle/daemon/8.10.2/com.example.pineapplegame.app-main-45:/mipmap-xhdpi/ic_launcher_round.webp"
     },
     {
-        "merged": "com.example.pineapplegame.app-debug-43:/mipmap-xhdpi_ic_logo_round.webp.flat",
-        "source": "com.example.pineapplegame.app-main-45:/mipmap-xhdpi/ic_logo_round.webp"
+        "merged": "/Users/minki/AndroidStudioProjects/mobile_programing/gradle/daemon/8.10.2/com.example.pineapplegame.app-debug-43:/font_cookierun.ttf.flat",
+        "source": "/Users/minki/AndroidStudioProjects/mobile_programing/gradle/daemon/8.10.2/com.example.pineapplegame.app-main-45:/font/cookierun.ttf"
     },
     {
-        "merged": "com.example.pineapplegame.app-debug-43:/mipmap-xxxhdpi_ic_logo_foreground.webp.flat",
-        "source": "com.example.pineapplegame.app-main-45:/mipmap-xxxhdpi/ic_logo_foreground.webp"
+        "merged": "/Users/minki/AndroidStudioProjects/mobile_programing/gradle/daemon/8.10.2/com.example.pineapplegame.app-debug-43:/mipmap-hdpi_ic_logo_round.webp.flat",
+        "source": "/Users/minki/AndroidStudioProjects/mobile_programing/gradle/daemon/8.10.2/com.example.pineapplegame.app-main-45:/mipmap-hdpi/ic_logo_round.webp"
     },
     {
-        "merged": "com.example.pineapplegame.app-debug-43:/mipmap-hdpi_ic_logo_foreground.webp.flat",
-        "source": "com.example.pineapplegame.app-main-45:/mipmap-hdpi/ic_logo_foreground.webp"
+        "merged": "/Users/minki/AndroidStudioProjects/mobile_programing/gradle/daemon/8.10.2/com.example.pineapplegame.app-debug-43:/layout_activity_score.xml.flat",
+        "source": "/Users/minki/AndroidStudioProjects/mobile_programing/gradle/daemon/8.10.2/com.example.pineapplegame.app-main-45:/layout/activity_score.xml"
     },
     {
-        "merged": "com.example.pineapplegame.app-debug-43:/layout_activity_game.xml.flat",
-        "source": "com.example.pineapplegame.app-main-45:/layout/activity_game.xml"
+        "merged": "/Users/minki/AndroidStudioProjects/mobile_programing/gradle/daemon/8.10.2/com.example.pineapplegame.app-debug-43:/mipmap-mdpi_ic_logo.webp.flat",
+        "source": "/Users/minki/AndroidStudioProjects/mobile_programing/gradle/daemon/8.10.2/com.example.pineapplegame.app-main-45:/mipmap-mdpi/ic_logo.webp"
     },
     {
-        "merged": "com.example.pineapplegame.app-debug-43:/mipmap-mdpi_ic_launcher.webp.flat",
-        "source": "com.example.pineapplegame.app-main-45:/mipmap-mdpi/ic_launcher.webp"
+        "merged": "/Users/minki/AndroidStudioProjects/mobile_programing/gradle/daemon/8.10.2/com.example.pineapplegame.app-debug-43:/raw_low_pop.mp3.flat",
+        "source": "/Users/minki/AndroidStudioProjects/mobile_programing/gradle/daemon/8.10.2/com.example.pineapplegame.app-main-45:/raw/low_pop.mp3"
     },
     {
-        "merged": "com.example.pineapplegame.app-debug-43:/layout_activity_main.xml.flat",
-        "source": "com.example.pineapplegame.app-main-45:/layout/activity_main.xml"
+        "merged": "/Users/minki/AndroidStudioProjects/mobile_programing/gradle/daemon/8.10.2/com.example.pineapplegame.app-debug-43:/drawable_pineapple_logo.png.flat",
+        "source": "/Users/minki/AndroidStudioProjects/mobile_programing/gradle/daemon/8.10.2/com.example.pineapplegame.app-main-45:/drawable/pineapple_logo.png"
     },
     {
-        "merged": "com.example.pineapplegame.app-debug-43:/mipmap-xxhdpi_ic_logo_round.webp.flat",
-        "source": "com.example.pineapplegame.app-main-45:/mipmap-xxhdpi/ic_logo_round.webp"
+        "merged": "/Users/minki/AndroidStudioProjects/mobile_programing/gradle/daemon/8.10.2/com.example.pineapplegame.app-debug-43:/raw_drag.mp3.flat",
+        "source": "/Users/minki/AndroidStudioProjects/mobile_programing/gradle/daemon/8.10.2/com.example.pineapplegame.app-main-45:/raw/drag.mp3"
     },
     {
-        "merged": "com.example.pineapplegame.app-debug-43:/mipmap-xhdpi_ic_logo_foreground.webp.flat",
-        "source": "com.example.pineapplegame.app-main-45:/mipmap-xhdpi/ic_logo_foreground.webp"
+        "merged": "/Users/minki/AndroidStudioProjects/mobile_programing/gradle/daemon/8.10.2/com.example.pineapplegame.app-debug-43:/mipmap-mdpi_ic_logo_round.webp.flat",
+        "source": "/Users/minki/AndroidStudioProjects/mobile_programing/gradle/daemon/8.10.2/com.example.pineapplegame.app-main-45:/mipmap-mdpi/ic_logo_round.webp"
     },
     {
-        "merged": "com.example.pineapplegame.app-debug-43:/mipmap-anydpi-v26_ic_logo_round.xml.flat",
-        "source": "com.example.pineapplegame.app-main-45:/mipmap-anydpi-v26/ic_logo_round.xml"
+        "merged": "/Users/minki/AndroidStudioProjects/mobile_programing/gradle/daemon/8.10.2/com.example.pineapplegame.app-debug-43:/anim_pop_in.xml.flat",
+        "source": "/Users/minki/AndroidStudioProjects/mobile_programing/gradle/daemon/8.10.2/com.example.pineapplegame.app-main-45:/anim/pop_in.xml"
     },
     {
-        "merged": "com.example.pineapplegame.app-debug-43:/drawable_pineapple_gridselect.png.flat",
-        "source": "com.example.pineapplegame.app-main-45:/drawable/pineapple_gridselect.png"
+        "merged": "/Users/minki/AndroidStudioProjects/mobile_programing/gradle/daemon/8.10.2/com.example.pineapplegame.app-debug-43:/mipmap-xxhdpi_ic_logo_round.webp.flat",
+        "source": "/Users/minki/AndroidStudioProjects/mobile_programing/gradle/daemon/8.10.2/com.example.pineapplegame.app-main-45:/mipmap-xxhdpi/ic_logo_round.webp"
     },
     {
-        "merged": "com.example.pineapplegame.app-debug-43:/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
-        "source": "com.example.pineapplegame.app-main-45:/mipmap-anydpi-v26/ic_launcher_round.xml"
+        "merged": "/Users/minki/AndroidStudioProjects/mobile_programing/gradle/daemon/8.10.2/com.example.pineapplegame.app-debug-43:/mipmap-anydpi-v26_ic_logo.xml.flat",
+        "source": "/Users/minki/AndroidStudioProjects/mobile_programing/gradle/daemon/8.10.2/com.example.pineapplegame.app-main-45:/mipmap-anydpi-v26/ic_logo.xml"
     },
     {
-        "merged": "com.example.pineapplegame.app-debug-43:/drawable_pineapple_bg.png.flat",
-        "source": "com.example.pineapplegame.app-main-45:/drawable/pineapple_bg.png"
+        "merged": "/Users/minki/AndroidStudioProjects/mobile_programing/gradle/daemon/8.10.2/com.example.pineapplegame.app-debug-43:/drawable_ic_launcher_foreground.xml.flat",
+        "source": "/Users/minki/AndroidStudioProjects/mobile_programing/gradle/daemon/8.10.2/com.example.pineapplegame.app-main-45:/drawable/ic_launcher_foreground.xml"
     },
     {
-        "merged": "com.example.pineapplegame.app-debug-43:/mipmap-hdpi_ic_launcher_round.webp.flat",
-        "source": "com.example.pineapplegame.app-main-45:/mipmap-hdpi/ic_launcher_round.webp"
+        "merged": "/Users/minki/AndroidStudioProjects/mobile_programing/gradle/daemon/8.10.2/com.example.pineapplegame.app-debug-43:/raw_test.mp3.flat",
+        "source": "/Users/minki/AndroidStudioProjects/mobile_programing/gradle/daemon/8.10.2/com.example.pineapplegame.app-main-45:/raw/test.mp3"
     },
     {
-        "merged": "com.example.pineapplegame.app-debug-43:/mipmap-anydpi-v26_ic_launcher.xml.flat",
-        "source": "com.example.pineapplegame.app-main-45:/mipmap-anydpi-v26/ic_launcher.xml"
+        "merged": "/Users/minki/AndroidStudioProjects/mobile_programing/gradle/daemon/8.10.2/com.example.pineapplegame.app-debug-43:/mipmap-hdpi_ic_launcher_round.webp.flat",
+        "source": "/Users/minki/AndroidStudioProjects/mobile_programing/gradle/daemon/8.10.2/com.example.pineapplegame.app-main-45:/mipmap-hdpi/ic_launcher_round.webp"
     },
     {
-        "merged": "com.example.pineapplegame.app-debug-43:/mipmap-hdpi_ic_logo.webp.flat",
-        "source": "com.example.pineapplegame.app-main-45:/mipmap-hdpi/ic_logo.webp"
+        "merged": "/Users/minki/AndroidStudioProjects/mobile_programing/gradle/daemon/8.10.2/com.example.pineapplegame.app-debug-43:/mipmap-hdpi_ic_logo_foreground.webp.flat",
+        "source": "/Users/minki/AndroidStudioProjects/mobile_programing/gradle/daemon/8.10.2/com.example.pineapplegame.app-main-45:/mipmap-hdpi/ic_logo_foreground.webp"
     },
     {
-        "merged": "com.example.pineapplegame.app-debug-43:/mipmap-xhdpi_ic_launcher_round.webp.flat",
-        "source": "com.example.pineapplegame.app-main-45:/mipmap-xhdpi/ic_launcher_round.webp"
+        "merged": "/Users/minki/AndroidStudioProjects/mobile_programing/gradle/daemon/8.10.2/com.example.pineapplegame.app-debug-43:/mipmap-anydpi-v26_ic_logo_round.xml.flat",
+        "source": "/Users/minki/AndroidStudioProjects/mobile_programing/gradle/daemon/8.10.2/com.example.pineapplegame.app-main-45:/mipmap-anydpi-v26/ic_logo_round.xml"
     },
     {
-        "merged": "com.example.pineapplegame.app-debug-43:/drawable_explosion_anim.xml.flat",
-        "source": "com.example.pineapplegame.app-main-45:/drawable/explosion_anim.xml"
+        "merged": "/Users/minki/AndroidStudioProjects/mobile_programing/gradle/daemon/8.10.2/com.example.pineapplegame.app-debug-43:/mipmap-xhdpi_ic_logo.webp.flat",
+        "source": "/Users/minki/AndroidStudioProjects/mobile_programing/gradle/daemon/8.10.2/com.example.pineapplegame.app-main-45:/mipmap-xhdpi/ic_logo.webp"
     },
     {
-        "merged": "com.example.pineapplegame.app-debug-43:/raw_test.mp3.flat",
-        "source": "com.example.pineapplegame.app-main-45:/raw/test.mp3"
+        "merged": "/Users/minki/AndroidStudioProjects/mobile_programing/gradle/daemon/8.10.2/com.example.pineapplegame.app-debug-43:/drawable_explosion_frame.png.flat",
+        "source": "/Users/minki/AndroidStudioProjects/mobile_programing/gradle/daemon/8.10.2/com.example.pineapplegame.app-main-45:/drawable/explosion_frame.png"
     },
     {
-        "merged": "com.example.pineapplegame.app-debug-43:/drawable_ic_launcher_background.xml.flat",
-        "source": "com.example.pineapplegame.app-main-45:/drawable/ic_launcher_background.xml"
+        "merged": "/Users/minki/AndroidStudioProjects/mobile_programing/gradle/daemon/8.10.2/com.example.pineapplegame.app-debug-43:/drawable_btn_close_img.xml.flat",
+        "source": "/Users/minki/AndroidStudioProjects/mobile_programing/gradle/daemon/8.10.2/com.example.pineapplegame.app-main-45:/drawable/btn_close_img.xml"
     },
     {
-        "merged": "com.example.pineapplegame.app-debug-43:/mipmap-xxxhdpi_ic_launcher.webp.flat",
-        "source": "com.example.pineapplegame.app-main-45:/mipmap-xxxhdpi/ic_launcher.webp"
+        "merged": "/Users/minki/AndroidStudioProjects/mobile_programing/gradle/daemon/8.10.2/com.example.pineapplegame.app-debug-43:/layout_activity_game.xml.flat",
+        "source": "/Users/minki/AndroidStudioProjects/mobile_programing/gradle/daemon/8.10.2/com.example.pineapplegame.app-main-45:/layout/activity_game.xml"
     },
     {
-        "merged": "com.example.pineapplegame.app-debug-43:/anim_pop_in.xml.flat",
-        "source": "com.example.pineapplegame.app-main-45:/anim/pop_in.xml"
+        "merged": "/Users/minki/AndroidStudioProjects/mobile_programing/gradle/daemon/8.10.2/com.example.pineapplegame.app-debug-43:/drawable_pineapple_bg.png.flat",
+        "source": "/Users/minki/AndroidStudioProjects/mobile_programing/gradle/daemon/8.10.2/com.example.pineapplegame.app-main-45:/drawable/pineapple_bg.png"
     },
     {
-        "merged": "com.example.pineapplegame.app-debug-43:/raw_drag.mp3.flat",
-        "source": "com.example.pineapplegame.app-main-45:/raw/drag.mp3"
+        "merged": "/Users/minki/AndroidStudioProjects/mobile_programing/gradle/daemon/8.10.2/com.example.pineapplegame.app-debug-43:/mipmap-xxxhdpi_ic_launcher_round.webp.flat",
+        "source": "/Users/minki/AndroidStudioProjects/mobile_programing/gradle/daemon/8.10.2/com.example.pineapplegame.app-main-45:/mipmap-xxxhdpi/ic_launcher_round.webp"
     },
     {
-        "merged": "com.example.pineapplegame.app-debug-43:/mipmap-mdpi_ic_logo_round.webp.flat",
-        "source": "com.example.pineapplegame.app-main-45:/mipmap-mdpi/ic_logo_round.webp"
+        "merged": "/Users/minki/AndroidStudioProjects/mobile_programing/gradle/daemon/8.10.2/com.example.pineapplegame.app-debug-43:/layout_activity_register.xml.flat",
+        "source": "/Users/minki/AndroidStudioProjects/mobile_programing/gradle/daemon/8.10.2/com.example.pineapplegame.app-main-45:/layout/activity_register.xml"
     },
     {
-        "merged": "com.example.pineapplegame.app-debug-43:/mipmap-mdpi_ic_logo.webp.flat",
-        "source": "com.example.pineapplegame.app-main-45:/mipmap-mdpi/ic_logo.webp"
+        "merged": "/Users/minki/AndroidStudioProjects/mobile_programing/gradle/daemon/8.10.2/com.example.pineapplegame.app-debug-43:/layout_activity_ranking.xml.flat",
+        "source": "/Users/minki/AndroidStudioProjects/mobile_programing/gradle/daemon/8.10.2/com.example.pineapplegame.app-main-45:/layout/activity_ranking.xml"
     },
     {
-        "merged": "com.example.pineapplegame.app-debug-43:/mipmap-hdpi_ic_launcher.webp.flat",
-        "source": "com.example.pineapplegame.app-main-45:/mipmap-hdpi/ic_launcher.webp"
+        "merged": "/Users/minki/AndroidStudioProjects/mobile_programing/gradle/daemon/8.10.2/com.example.pineapplegame.app-debug-43:/drawable_ic_launcher_background.xml.flat",
+        "source": "/Users/minki/AndroidStudioProjects/mobile_programing/gradle/daemon/8.10.2/com.example.pineapplegame.app-main-45:/drawable/ic_launcher_background.xml"
     },
     {
-        "merged": "com.example.pineapplegame.app-debug-43:/drawable_option_img.png.flat",
-        "source": "com.example.pineapplegame.app-main-45:/drawable/option_img.png"
+        "merged": "/Users/minki/AndroidStudioProjects/mobile_programing/gradle/daemon/8.10.2/com.example.pineapplegame.app-debug-43:/mipmap-xxhdpi_ic_launcher_round.webp.flat",
+        "source": "/Users/minki/AndroidStudioProjects/mobile_programing/gradle/daemon/8.10.2/com.example.pineapplegame.app-main-45:/mipmap-xxhdpi/ic_launcher_round.webp"
     },
     {
-        "merged": "com.example.pineapplegame.app-debug-43:/mipmap-xxhdpi_ic_launcher.webp.flat",
-        "source": "com.example.pineapplegame.app-main-45:/mipmap-xxhdpi/ic_launcher.webp"
+        "merged": "/Users/minki/AndroidStudioProjects/mobile_programing/gradle/daemon/8.10.2/com.example.pineapplegame.app-debug-43:/drawable_option_img.png.flat",
+        "source": "/Users/minki/AndroidStudioProjects/mobile_programing/gradle/daemon/8.10.2/com.example.pineapplegame.app-main-45:/drawable/option_img.png"
     },
     {
-        "merged": "com.example.pineapplegame.app-debug-43:/font_cookierun.ttf.flat",
-        "source": "com.example.pineapplegame.app-main-45:/font/cookierun.ttf"
+        "merged": "/Users/minki/AndroidStudioProjects/mobile_programing/gradle/daemon/8.10.2/com.example.pineapplegame.app-debug-43:/mipmap-xhdpi_ic_logo_foreground.webp.flat",
+        "source": "/Users/minki/AndroidStudioProjects/mobile_programing/gradle/daemon/8.10.2/com.example.pineapplegame.app-main-45:/mipmap-xhdpi/ic_logo_foreground.webp"
     },
     {
-        "merged": "com.example.pineapplegame.app-debug-43:/drawable_lobby_button.xml.flat",
-        "source": "com.example.pineapplegame.app-main-45:/drawable/lobby_button.xml"
+        "merged": "/Users/minki/AndroidStudioProjects/mobile_programing/gradle/daemon/8.10.2/com.example.pineapplegame.app-debug-43:/layout_activity_help.xml.flat",
+        "source": "/Users/minki/AndroidStudioProjects/mobile_programing/gradle/daemon/8.10.2/com.example.pineapplegame.app-main-45:/layout/activity_help.xml"
     },
     {
-        "merged": "com.example.pineapplegame.app-debug-43:/drawable_btn_close_img.xml.flat",
-        "source": "com.example.pineapplegame.app-main-45:/drawable/btn_close_img.xml"
+        "merged": "/Users/minki/AndroidStudioProjects/mobile_programing/gradle/daemon/8.10.2/com.example.pineapplegame.app-debug-43:/mipmap-hdpi_ic_logo.webp.flat",
+        "source": "/Users/minki/AndroidStudioProjects/mobile_programing/gradle/daemon/8.10.2/com.example.pineapplegame.app-main-45:/mipmap-hdpi/ic_logo.webp"
     },
     {
-        "merged": "com.example.pineapplegame.app-debug-43:/mipmap-xxxhdpi_ic_logo_round.webp.flat",
-        "source": "com.example.pineapplegame.app-main-45:/mipmap-xxxhdpi/ic_logo_round.webp"
+        "merged": "/Users/minki/AndroidStudioProjects/mobile_programing/gradle/daemon/8.10.2/com.example.pineapplegame.app-debug-43:/mipmap-hdpi_ic_launcher.webp.flat",
+        "source": "/Users/minki/AndroidStudioProjects/mobile_programing/gradle/daemon/8.10.2/com.example.pineapplegame.app-main-45:/mipmap-hdpi/ic_launcher.webp"
     },
     {
-        "merged": "com.example.pineapplegame.app-debug-43:/mipmap-xxhdpi_ic_logo_foreground.webp.flat",
-        "source": "com.example.pineapplegame.app-main-45:/mipmap-xxhdpi/ic_logo_foreground.webp"
+        "merged": "/Users/minki/AndroidStudioProjects/mobile_programing/gradle/daemon/8.10.2/com.example.pineapplegame.app-debug-43:/mipmap-xxhdpi_ic_launcher.webp.flat",
+        "source": "/Users/minki/AndroidStudioProjects/mobile_programing/gradle/daemon/8.10.2/com.example.pineapplegame.app-main-45:/mipmap-xxhdpi/ic_launcher.webp"
     },
     {
-        "merged": "com.example.pineapplegame.app-debug-43:/xml_data_extraction_rules.xml.flat",
-        "source": "com.example.pineapplegame.app-main-45:/xml/data_extraction_rules.xml"
+        "merged": "/Users/minki/AndroidStudioProjects/mobile_programing/gradle/daemon/8.10.2/com.example.pineapplegame.app-debug-43:/drawable_pineapple_gridselect.png.flat",
+        "source": "/Users/minki/AndroidStudioProjects/mobile_programing/gradle/daemon/8.10.2/com.example.pineapplegame.app-main-45:/drawable/pineapple_gridselect.png"
     },
     {
-        "merged": "com.example.pineapplegame.app-debug-43:/mipmap-xxxhdpi_ic_logo.webp.flat",
-        "source": "com.example.pineapplegame.app-main-45:/mipmap-xxxhdpi/ic_logo.webp"
+        "merged": "/Users/minki/AndroidStudioProjects/mobile_programing/gradle/daemon/8.10.2/com.example.pineapplegame.app-debug-43:/xml_data_extraction_rules.xml.flat",
+        "source": "/Users/minki/AndroidStudioProjects/mobile_programing/gradle/daemon/8.10.2/com.example.pineapplegame.app-main-45:/xml/data_extraction_rules.xml"
     },
     {
-        "merged": "com.example.pineapplegame.app-debug-43:/mipmap-anydpi-v26_ic_logo.xml.flat",
-        "source": "com.example.pineapplegame.app-main-45:/mipmap-anydpi-v26/ic_logo.xml"
+        "merged": "/Users/minki/AndroidStudioProjects/mobile_programing/gradle/daemon/8.10.2/com.example.pineapplegame.app-debug-43:/mipmap-xxhdpi_ic_logo.webp.flat",
+        "source": "/Users/minki/AndroidStudioProjects/mobile_programing/gradle/daemon/8.10.2/com.example.pineapplegame.app-main-45:/mipmap-xxhdpi/ic_logo.webp"
     },
     {
-        "merged": "com.example.pineapplegame.app-debug-43:/xml_backup_rules.xml.flat",
-        "source": "com.example.pineapplegame.app-main-45:/xml/backup_rules.xml"
+        "merged": "/Users/minki/AndroidStudioProjects/mobile_programing/gradle/daemon/8.10.2/com.example.pineapplegame.app-debug-43:/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "/Users/minki/AndroidStudioProjects/mobile_programing/gradle/daemon/8.10.2/com.example.pineapplegame.app-main-45:/mipmap-anydpi-v26/ic_launcher_round.xml"
     },
     {
-        "merged": "com.example.pineapplegame.app-debug-43:/drawable_pineapple_logo.png.flat",
-        "source": "com.example.pineapplegame.app-main-45:/drawable/pineapple_logo.png"
+        "merged": "/Users/minki/AndroidStudioProjects/mobile_programing/gradle/daemon/8.10.2/com.example.pineapplegame.app-debug-43:/drawable_pineapple_griddestroy.png.flat",
+        "source": "/Users/minki/AndroidStudioProjects/mobile_programing/gradle/daemon/8.10.2/com.example.pineapplegame.app-main-45:/drawable/pineapple_griddestroy.png"
     },
     {
-        "merged": "com.example.pineapplegame.app-debug-43:/mipmap-mdpi_ic_launcher_round.webp.flat",
-        "source": "com.example.pineapplegame.app-main-45:/mipmap-mdpi/ic_launcher_round.webp"
+        "merged": "/Users/minki/AndroidStudioProjects/mobile_programing/gradle/daemon/8.10.2/com.example.pineapplegame.app-debug-43:/drawable_lobby_button.xml.flat",
+        "source": "/Users/minki/AndroidStudioProjects/mobile_programing/gradle/daemon/8.10.2/com.example.pineapplegame.app-main-45:/drawable/lobby_button.xml"
     },
     {
-        "merged": "com.example.pineapplegame.app-debug-43:/drawable_explosion_frame.png.flat",
-        "source": "com.example.pineapplegame.app-main-45:/drawable/explosion_frame.png"
+        "merged": "/Users/minki/AndroidStudioProjects/mobile_programing/gradle/daemon/8.10.2/com.example.pineapplegame.app-debug-43:/mipmap-xxxhdpi_ic_logo_foreground.webp.flat",
+        "source": "/Users/minki/AndroidStudioProjects/mobile_programing/gradle/daemon/8.10.2/com.example.pineapplegame.app-main-45:/mipmap-xxxhdpi/ic_logo_foreground.webp"
     },
     {
-        "merged": "com.example.pineapplegame.app-debug-43:/layout_activity_register.xml.flat",
-        "source": "com.example.pineapplegame.app-main-45:/layout/activity_register.xml"
+        "merged": "/Users/minki/AndroidStudioProjects/mobile_programing/gradle/daemon/8.10.2/com.example.pineapplegame.app-debug-43:/layout_activity_option.xml.flat",
+        "source": "/Users/minki/AndroidStudioProjects/mobile_programing/gradle/daemon/8.10.2/com.example.pineapplegame.app-main-45:/layout/activity_option.xml"
     },
     {
-        "merged": "com.example.pineapplegame.app-debug-43:/raw_low_pop.mp3.flat",
-        "source": "com.example.pineapplegame.app-main-45:/raw/low_pop.mp3"
+        "merged": "/Users/minki/AndroidStudioProjects/mobile_programing/gradle/daemon/8.10.2/com.example.pineapplegame.app-debug-43:/mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "/Users/minki/AndroidStudioProjects/mobile_programing/gradle/daemon/8.10.2/com.example.pineapplegame.app-main-45:/mipmap-anydpi-v26/ic_launcher.xml"
     },
     {
-        "merged": "com.example.pineapplegame.app-debug-43:/mipmap-xxhdpi_ic_logo.webp.flat",
-        "source": "com.example.pineapplegame.app-main-45:/mipmap-xxhdpi/ic_logo.webp"
+        "merged": "/Users/minki/AndroidStudioProjects/mobile_programing/gradle/daemon/8.10.2/com.example.pineapplegame.app-debug-43:/mipmap-xhdpi_ic_logo_round.webp.flat",
+        "source": "/Users/minki/AndroidStudioProjects/mobile_programing/gradle/daemon/8.10.2/com.example.pineapplegame.app-main-45:/mipmap-xhdpi/ic_logo_round.webp"
     },
     {
-        "merged": "com.example.pineapplegame.app-debug-43:/mipmap-xhdpi_ic_logo.webp.flat",
-        "source": "com.example.pineapplegame.app-main-45:/mipmap-xhdpi/ic_logo.webp"
+        "merged": "/Users/minki/AndroidStudioProjects/mobile_programing/gradle/daemon/8.10.2/com.example.pineapplegame.app-debug-43:/mipmap-xxxhdpi_ic_logo_round.webp.flat",
+        "source": "/Users/minki/AndroidStudioProjects/mobile_programing/gradle/daemon/8.10.2/com.example.pineapplegame.app-main-45:/mipmap-xxxhdpi/ic_logo_round.webp"
     },
     {
-        "merged": "com.example.pineapplegame.app-debug-43:/mipmap-xxxhdpi_ic_launcher_round.webp.flat",
-        "source": "com.example.pineapplegame.app-main-45:/mipmap-xxxhdpi/ic_launcher_round.webp"
+        "merged": "/Users/minki/AndroidStudioProjects/mobile_programing/gradle/daemon/8.10.2/com.example.pineapplegame.app-debug-43:/layout_activity_login.xml.flat",
+        "source": "/Users/minki/AndroidStudioProjects/mobile_programing/gradle/daemon/8.10.2/com.example.pineapplegame.app-main-45:/layout/activity_login.xml"
     },
     {
-        "merged": "com.example.pineapplegame.app-debug-43:/mipmap-xhdpi_ic_launcher.webp.flat",
-        "source": "com.example.pineapplegame.app-main-45:/mipmap-xhdpi/ic_launcher.webp"
+        "merged": "/Users/minki/AndroidStudioProjects/mobile_programing/gradle/daemon/8.10.2/com.example.pineapplegame.app-debug-43:/drawable_pineapple_grid.png.flat",
+        "source": "/Users/minki/AndroidStudioProjects/mobile_programing/gradle/daemon/8.10.2/com.example.pineapplegame.app-main-45:/drawable/pineapple_grid.png"
     },
     {
-        "merged": "com.example.pineapplegame.app-debug-43:/layout_activity_option.xml.flat",
-        "source": "com.example.pineapplegame.app-main-45:/layout/activity_option.xml"
+        "merged": "/Users/minki/AndroidStudioProjects/mobile_programing/gradle/daemon/8.10.2/com.example.pineapplegame.app-debug-43:/mipmap-xxxhdpi_ic_logo.webp.flat",
+        "source": "/Users/minki/AndroidStudioProjects/mobile_programing/gradle/daemon/8.10.2/com.example.pineapplegame.app-main-45:/mipmap-xxxhdpi/ic_logo.webp"
     },
     {
-        "merged": "com.example.pineapplegame.app-debug-43:/drawable_ic_launcher_foreground.xml.flat",
-        "source": "com.example.pineapplegame.app-main-45:/drawable/ic_launcher_foreground.xml"
+        "merged": "/Users/minki/AndroidStudioProjects/mobile_programing/gradle/daemon/8.10.2/com.example.pineapplegame.app-debug-43:/mipmap-mdpi_ic_logo_foreground.webp.flat",
+        "source": "/Users/minki/AndroidStudioProjects/mobile_programing/gradle/daemon/8.10.2/com.example.pineapplegame.app-main-45:/mipmap-mdpi/ic_logo_foreground.webp"
     },
     {
-        "merged": "com.example.pineapplegame.app-debug-43:/layout_activity_help.xml.flat",
-        "source": "com.example.pineapplegame.app-main-45:/layout/activity_help.xml"
+        "merged": "/Users/minki/AndroidStudioProjects/mobile_programing/gradle/daemon/8.10.2/com.example.pineapplegame.app-debug-43:/mipmap-xxhdpi_ic_logo_foreground.webp.flat",
+        "source": "/Users/minki/AndroidStudioProjects/mobile_programing/gradle/daemon/8.10.2/com.example.pineapplegame.app-main-45:/mipmap-xxhdpi/ic_logo_foreground.webp"
     },
     {
-        "merged": "com.example.pineapplegame.app-debug-43:/layout_activity_ranking.xml.flat",
-        "source": "com.example.pineapplegame.app-main-45:/layout/activity_ranking.xml"
+        "merged": "/Users/minki/AndroidStudioProjects/mobile_programing/gradle/daemon/8.10.2/com.example.pineapplegame.app-debug-43:/layout_activity_main.xml.flat",
+        "source": "/Users/minki/AndroidStudioProjects/mobile_programing/gradle/daemon/8.10.2/com.example.pineapplegame.app-main-45:/layout/activity_main.xml"
     },
     {
-        "merged": "com.example.pineapplegame.app-debug-43:/mipmap-hdpi_ic_logo_round.webp.flat",
-        "source": "com.example.pineapplegame.app-main-45:/mipmap-hdpi/ic_logo_round.webp"
+        "merged": "/Users/minki/AndroidStudioProjects/mobile_programing/gradle/daemon/8.10.2/com.example.pineapplegame.app-debug-43:/mipmap-xhdpi_ic_launcher.webp.flat",
+        "source": "/Users/minki/AndroidStudioProjects/mobile_programing/gradle/daemon/8.10.2/com.example.pineapplegame.app-main-45:/mipmap-xhdpi/ic_launcher.webp"
     },
     {
-        "merged": "com.example.pineapplegame.app-debug-43:/drawable_pineapple_griddestroy.png.flat",
-        "source": "com.example.pineapplegame.app-main-45:/drawable/pineapple_griddestroy.png"
+        "merged": "/Users/minki/AndroidStudioProjects/mobile_programing/gradle/daemon/8.10.2/com.example.pineapplegame.app-debug-43:/mipmap-mdpi_ic_launcher.webp.flat",
+        "source": "/Users/minki/AndroidStudioProjects/mobile_programing/gradle/daemon/8.10.2/com.example.pineapplegame.app-main-45:/mipmap-mdpi/ic_launcher.webp"
     },
     {
-        "merged": "com.example.pineapplegame.app-debug-43:/mipmap-xxhdpi_ic_launcher_round.webp.flat",
-        "source": "com.example.pineapplegame.app-main-45:/mipmap-xxhdpi/ic_launcher_round.webp"
+        "merged": "/Users/minki/AndroidStudioProjects/mobile_programing/gradle/daemon/8.10.2/com.example.pineapplegame.app-debug-43:/mipmap-mdpi_ic_launcher_round.webp.flat",
+        "source": "/Users/minki/AndroidStudioProjects/mobile_programing/gradle/daemon/8.10.2/com.example.pineapplegame.app-main-45:/mipmap-mdpi/ic_launcher_round.webp"
     }
 ]

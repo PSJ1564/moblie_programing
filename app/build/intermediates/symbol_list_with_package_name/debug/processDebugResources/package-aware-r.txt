@@ -3282,11 +3282,9 @@ id browser_actions_menu_item_text
 id browser_actions_menu_items
 id browser_actions_menu_view
 id btnBack
-id btnBackToMain
 id btnDestroy
 id btnHint
 id btnLogin
-id btnMain
 id btnMusic
 id btnPause
 id btnRanking
@@ -3490,6 +3488,7 @@ id matrix
 id message
 id middle
 id mini
+id modeRadioGroup
 id month_grid
 id month_navigation_bar
 id month_navigation_fragment_toggle
@@ -3578,6 +3577,8 @@ id pressed
 id progress_circular
 id progress_horizontal
 id radio
+id radioClassic
+id radioItem
 id rankingListView
 id ratio
 id rectangles
@@ -3691,7 +3692,6 @@ id textinput_suffix_text
 id time
 id title
 id titleDividerNoCustom
-id titleSetting
 id title_template
 id toggle
 id top
@@ -3709,7 +3709,6 @@ id transition_scene_layoutid_cache
 id transition_transform
 id triangle
 id tvScoresList
-id tvTopScores
 id unchecked
 id uniform
 id unlabeled

@@ -83,7 +83,7 @@
                 android:textSize="15dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="블록 제거" />
+                android:text="🧨폭탄 (3/3)" />
 
             <Button
                 android:id="@+id/btnSwap"
@@ -92,7 +92,7 @@
                 android:textSize="15dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="블록 교환" />
+                android:text="🔄교환 (3/3)" />
 
             <Button
                 android:id="@+id/btnHint"

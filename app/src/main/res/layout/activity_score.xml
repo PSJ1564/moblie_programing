@@ -8,27 +8,67 @@
         android:id="@+id/movingPineapple"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#FFB06B"
+        android:background="#FFFACD"
         android:alpha="0.3"
         />
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    <LinearLayout
+        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:padding="16dp"
-        android:fitsSystemWindows="true"
-        android:alpha="1.0"
-        >
-        <!-- 상위 10점 리스트를 보여줄 TextView (읽기 전용) -->
-        <TextView
-            android:id="@+id/tvTopScores"
+        android:padding="24dp">
+        <!-- 상단 타이틀과 닫기 버튼 -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/helpTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="My Top 10 Score"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:layout_centerHorizontal="true"/>
+            <ImageButton
+                android:id="@+id/closeButton"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_alignParentEnd="true"
+                android:src="@drawable/btn_close_img"/>
+        </RelativeLayout>
+
+        <!-- 모드 선택 라디오 그룹 -->
+        <RadioGroup
+            android:id="@+id/modeRadioGroup"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Top 10 Scores"
-            android:textStyle="bold"
-            android:textSize="50sp"
+            android:orientation="horizontal"
             android:layout_gravity="center"
-            android:layout_marginBottom="20dp"/>
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp">
+
+            <RadioButton
+                android:id="@+id/radioClassic"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="클래식 모드"
+                android:checked="true"/>
+            <RadioButton
+                android:id="@+id/radioItem"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="아이템 모드"/>
+        </RadioGroup>
+
+        <!-- 구분선 -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#E0E0E0"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="16dp"/>
+
         <!-- 점수 목록을 보여줄 TextView (읽기 전용) -->
         <TextView
             android:id="@+id/tvScoresList"
@@ -36,13 +76,6 @@
             android:layout_height="wrap_content"
             android:text=""
             android:textSize="16sp"/>
-        <!-- 돌아가기 버튼 -->
-        <Button
-            android:id="@+id/btnBackToMain"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="돌아가기"
-            android:layout_gravity="center"
-            android:layout_marginTop="20dp"/>
+
     </LinearLayout>
 </FrameLayout>

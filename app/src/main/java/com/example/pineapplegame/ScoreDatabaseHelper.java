@@ -10,17 +10,19 @@ public class ScoreDatabaseHelper extends SQLiteOpenHelper {
 
     // 데이터베이스 이름과 버전
     private static final String DATABASE_NAME = "high_scores.db";
-    private static final int DATABASE_VERSION = 1;
+    private static final int DATABASE_VERSION = 2;
 
     // 테이블 이름과 컬럼 정의
     private static final String TABLE_NAME = "high_scores";
     private static final String COLUMN_ID = "id";
     private static final String COLUMN_SCORE = "score";
+    private static final String COLUMN_MODE = "mode";
 
     // 테이블 생성 SQL문
     private static final String CREATE_TABLE = "CREATE TABLE " + TABLE_NAME + " ("
             + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
-            + COLUMN_SCORE + " INTEGER NOT NULL"
+            + COLUMN_SCORE + " INTEGER NOT NULL, "
+            + COLUMN_MODE + " TEXT NOT NULL"
             + ");";
 
     // 생성자
@@ -37,19 +39,22 @@ public class ScoreDatabaseHelper extends SQLiteOpenHelper {
     // 데이터베이스 버전이 변경될 때 호출되는 메소드
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);  // 기존 테이블 삭제
-        onCreate(db);  // 새로운 테이블 생성
+        if (oldVersion < 2) {
+            db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);  // 기존 테이블 삭제
+            onCreate(db);  // 새로운 테이블 생성
+        }
     }
 
     // 점수 추가 메소드
-    public void addScore(int score) {
+    public void addScore(int score, String mode) {
         SQLiteDatabase db = null;
         try {
             db = this.getWritableDatabase();
 
             // 중복 점수 확인
             Cursor cursor = db.query(TABLE_NAME, new String[]{COLUMN_SCORE},
-                    COLUMN_SCORE + " = ?", new String[]{String.valueOf(score)},
+                    COLUMN_SCORE + " = ? AND " + COLUMN_MODE + " = ?", // 모드 추가
+                    new String[]{String.valueOf(score), mode}, // 모드 값 전달
                     null, null, null);
 
             // 점수가 이미 존재하지 않으면
@@ -57,12 +62,16 @@ public class ScoreDatabaseHelper extends SQLiteOpenHelper {
                 // 새 점수 삽입
                 ContentValues values = new ContentValues();
                 values.put(COLUMN_SCORE, score);
+                values.put(COLUMN_MODE, mode);
+
                 db.insert(TABLE_NAME, null, values);
 
-                // 상위 10개만 유지
                 db.execSQL("DELETE FROM " + TABLE_NAME +
-                        " WHERE " + COLUMN_ID + " NOT IN (SELECT " + COLUMN_ID +
-                        " FROM " + TABLE_NAME + " ORDER BY " + COLUMN_SCORE + " DESC LIMIT 10)");
+                                " WHERE " + COLUMN_MODE + " = ? AND " + COLUMN_ID +
+                                " NOT IN (SELECT " + COLUMN_ID + " FROM " + TABLE_NAME +
+                                " WHERE " + COLUMN_MODE + " = ? ORDER BY " + COLUMN_SCORE +
+                                " DESC LIMIT 10)",
+                        new Object[]{mode, mode});
             }
             cursor.close();
         } finally {
@@ -72,10 +81,15 @@ public class ScoreDatabaseHelper extends SQLiteOpenHelper {
 
 
     // 상위 10개의 점수를 조회하는 메소드
-    public Cursor getTopScores() {
+    public Cursor getTopScores(String mode) {
         SQLiteDatabase db = this.getReadableDatabase();
-        return db.query(TABLE_NAME, new String[]{COLUMN_SCORE}, null, null, null, null,
-                COLUMN_SCORE + " DESC", "10");  // 점수를 내림차순으로 정렬하고, 상위 10개 조회
+        return db.query(TABLE_NAME,
+                new String[]{COLUMN_SCORE},
+                COLUMN_MODE + " = ?",
+                new String[]{mode},
+                null, null,
+                COLUMN_SCORE + " DESC",
+                "10");  // 점수를 내림차순으로 정렬하고, 상위 10개 조회
     }
     // 점수 초기화 메소드
     public void clearAllScores() {

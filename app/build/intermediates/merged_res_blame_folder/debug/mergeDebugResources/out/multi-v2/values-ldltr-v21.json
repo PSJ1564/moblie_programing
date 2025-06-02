@@ -4,7 +4,7 @@
             "outputFile": "com.example.pineapplegame.app-mergeDebugResources-41:/values-ldltr-v21/values-ldltr-v21.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\user\\.gradle\\caches\\8.10.2\\transforms\\7032781fa78f1d9a5abbb67ca99ceb93\\transformed\\appcompat-1.7.0\\res\\values-ldltr-v21\\values-ldltr-v21.xml",
+                    "source": "/Users/minki/AndroidStudioProjects/mobile_programing/gradle/caches/8.10.2/transforms/7032781fa78f1d9a5abbb67ca99ceb93/transformed/appcompat-1.7.0/res/values-ldltr-v21/values-ldltr-v21.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
